@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+<title>Atrix - HTML 5 Template Preview</title>
+
+<!-- Fav Icon -->
+<link rel="icon" href="assets/images/favicon-3.ico" type="image/x-icon">
+
+<!-- Stylesheets -->
+<link href="assets/css/font-awesome-all.css" rel="stylesheet">
+<link href="assets/css/flaticon.css" rel="stylesheet">
+<link href="assets/css/owl.css" rel="stylesheet">
+<link href="assets/css/bootstrap.css" rel="stylesheet">
+<link href="assets/css/jquery.fancybox.min.css" rel="stylesheet">
+<link href="assets/css/animate.css" rel="stylesheet">
+<link href="assets/css/color.css" rel="stylesheet">
+<link href="assets/css/global.css" rel="stylesheet">
+<link href="assets/css/elpath.css" rel="stylesheet">
+<link href="assets/css/style.css" rel="stylesheet">
+<link href="assets/css/responsive.css" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/sweetalert2.min.css">
+
+</head>
+
+
+<!-- page wrapper -->
+<body>
+
+    <main class="main-container">
+        <section class="col-sm-12 col-md-6 col-lg-8 col-xl-8 info-container" style="height: 100vh;">
+            <div class="text p_relative d_flex flex-column main-content">
+                <h3 class="auth-title">Sign In</h3>
+                <p class="fs_16 font_family_poppins">You can register if you are not? <a href="registration.html">Register Here</a></p>
+            </div>
+        </section>
+
+        <section class="col-sm-12 col-md-6 col-lg-4 col-xl-4 form-container">
+            <div class="form-container col-12" id="signInContainer">
+                <form id="signInForm" class="col-sm-12 col-md-10 col-lg-10 col-xl-10">                
+                    <div class="form-floating mb-3">
+                        <label for="email">Email<span class="text-danger">*</span></label>
+                        <input type="email" class="form-control"id="email" name="email" placeholder="Email" required>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <label for="password">Password<span class="text-danger">*</span></label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                    </div>
+
+                    <div class="form-group clearfix">
+                        <div class="check-box">
+                            <input class="check" type="checkbox" id="checkbox">
+                            <label for="checkbox">Remember Me</label>
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <a href="#" class="link text-decoration-none text-danger fw-bold" id="resetLink">Forgot Password?</a>
+                    </div>
+                    <div class="form-group message-btn">
+                        <button type="button" id="signInBtn" class="theme-btn theme-btn-five">Sign In <i class="icon-4"></i></button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="d-none flex-column justify-content-between align-items-center col-12" id="resetContainer" arial-hidden="true">
+                <div class="alert alert-warning alert-outline rounded ms-5 me-5 mt-2">
+                    If you are sure you have forgotten your password then you will need to reset your password
+                </div>
+                <p class="text-muted p-3 ms-5 me-5 mt-2 mb-2" id="responseText">
+                    A password reset link will be sent to your email, with instructions how to reset your password.
+                </p>
+                <form class="col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex flex-column" role="form" id="passwordResetForm">
+                    <div class="form-floating mb-3">
+                        <label for="email">Email</label>
+                        <input type="email" name="reset_email" id="reset_email" class="form-control form-control-solid rounded" placeholder="Enter your email" required>
+                    </div>                  
+
+                    <button class="theme-btn theme-btn-five" id="passwordResetBtn" type="button">Reset Password</button>
+                </form>
+
+                <form class="col-sm-12 col-md-10 col-lg-10 p-4 d-none flex-column" role="form" id="confirmResetForm">
+                    <div class="form-floating mb-3">
+                        <label for="confirm_code">Confirm OTC</label>
+                        <input type="text" name="confirm_code" id="confirm_code" class="form-control form-control-solid rounded" placeholder="Enter your Code" required>
+                    </div>                  
+                    <div class="form-floating mb-3">
+                        <label for="new_password">New Password</label>
+                        <input type="password" name="new_password" id="new_password" class="form-control form-control-solid rounded" placeholder="Enter new password" required>
+                    </div>                  
+                    <div class="form-floating mb-3">
+                        <label for="confirm_password">Confirm Password</label>
+                        <input type="password" name="confirm_password" id="confirm_password" class="form-control form-control-solid rounded" placeholder="Retype your password" required>
+                    </div>                  
+
+                    <button class="theme-btn theme-btn-five" id="resetPasswordBtn" type="button">Reset Password</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/owl.js"></script>
+    <script src="assets/js/wow.js"></script>
+    <script src="assets/js/validation.js"></script>
+    <script src="assets/js/jquery.fancybox.js"></script>
+    <script src="assets/js/appear.js"></script>
+    <script src="assets/js/scrollbar.js"></script>
+    <script src="assets/js/parallax.min.js"></script>
+    <script src="assets/js/circle-progress.js"></script>
+    <script src="assets/js/jquery.countTo.js"></script>
+    <script src="assets/js/nav-tool.js"></script>
+    <script src="assets/js/isotope.js"></script>
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <script src="assets/js/jquery.paroller.min.js"></script>
+    <script src="assets/js/parallax-scroll.js"></script>
+   
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/jquery_block_ui.js"></script>
+    <script src="assets/js/sweetalert2.min.js"></script>
+    <script src="assets/js/jquery.cookie.js"></script>
+
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.blockUI();
+
+        window.addEventListener('DOMContentLoaded', function() {
+            $.unblockUI();
+        });
+
+        $(document).ready(function(){
+            const storeJWT = {}
+            const loginBtn = document.querySelector("#signInBtn")
+            storeJWT.setJWT = function (data) {
+                this.JWT = data
+            }
+            
+            loginBtn.addEventListener("click", async e => {
+               signIn(e, storeJWT);
+            });
+
+            $('#resetLink').click(function(e){
+                $('#signInContainer').addClass('d-none', true);
+                $('#signInContainer').removeClass('d-flex', true);
+                $('#resetContainer').addClass('d-flex');
+                $('#resetContainer').removeClass('d-none');
+            });
+
+            $('#passwordResetBtn').click(function(e){
+                sendPasswordResetLink(e);
+            });
+
+            $('#resetPasswordBtn').click(function(e){
+                resetPassword(e);
+            });
+        });
+
+        $(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
+
+        function signIn(e, storeJWT) {
+            e.preventDefault();
+            let formData = new FormData(signInForm);
+            formData.append('action', 'sign_in_auth');        
+            $.ajax({
+                url: "/backend/",
+                type: "POST",
+                headers: {
+                    // "Content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+                },
+                data: formData,
+                contentType: false,
+                cache: false,
+                processData: false,
+                dataType: 'JSON',
+                success: function(json){
+                    console.log(json);
+                    if (json.statuscode === 0) {
+                        storeJWT.setJWT(json.data);
+                        $.cookie('_jwt', json.data, { expires: 1, path: `dashboard/${json.page}/${json.page}.html`});
+                        Swal.fire({
+                            title: "Success",
+                            html: json.status,
+                            type: "success",
+                            icon: "success",
+                            confirmButtonText: "Ok"
+                        }).then(function(res){                            
+                            window.location.href =`dashboard/${json.page}/${json.page}.html`;
+                        });
+                    } else {
+                        Swal.fire({
+                            title: "Error",
+                            html: json.status,
+                            type: "error",
+                            icon: "error",
+                            confirmButtonText: "Ok"
+                        });
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log(errorThrown);
+                    console.log(jqXHR);
+                    Swal.fire({
+                        title: "Error",
+                        html: jqXHR.responseText,
+                        type: "error",
+                        confirmButtonText: "Ok"
+                    });
+                }
+            });
+        }
+
+        function sendPasswordResetLink(e) {
+            e.preventDefault();
+            let formData = new FormData(passwordResetForm);
+            formData.append('action', 'reset_password_auth');        
+            $.ajax({
+                url: "/backend/",
+                type: "POST",
+                headers: {
+                    // "Content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+                },
+                data: formData,
+                contentType: false,
+                cache: false,
+                processData: false,
+                dataType: 'JSON',
+                success: function(json){
+                    console.log(json);
+                    if (json.statuscode === 0) {
+                        // storeJWT.setJWT(json.data);
+                        // $.cookie('polljotter_jwt', json.data, { expires: 1, path: '/polljota/entry/'+json.page });
+                        Swal.fire({
+                            title: "Success",
+                            html: json.status,
+                            type: "success",
+                            icon: "success",
+                            confirmButtonText: "Ok"
+                        }).then(function(res){
+                            // window.location.reload();
+                            $('#confirmResetForm').removeClass('d-none');
+                            $('#confirmResetForm').addClass('d-flex');
+                            $('#passwordResetForm').removeClass('d-flex');
+                            $('#passwordResetForm').addClass('d-none');
+                            $('#responseText').text(json.status);
+                            $('#responseText').removeClass('text-muted');
+                            $('#responseText').addClass('text-success');
+                        });
+                    } else {
+                        Swal.fire({
+                            title: "Error",
+                            html: json.status,
+                            type: "error",
+                            icon: "error",
+                            confirmButtonText: "Ok"
+                        });
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log(errorThrown);
+                    console.log(jqXHR);
+                    Swal.fire({
+                        title: "Error",
+                        html: jqXHR.responseText,
+                        type: "error",
+                        confirmButtonText: "Ok"
+                    });
+                }
+            });
+        }
+
+        function resetPassword(e) {
+            e.preventDefault();
+            let formData = new FormData(confirmResetForm);
+            formData.append('action', 'confirm_otp_auth');        
+            $.ajax({
+                url: "/backend/",
+                type: "POST",
+                data: formData,
+                contentType: false,
+                cache: false,
+                processData: false,
+                dataType: 'JSON',
+                success: function(json){
+                    console.log(json);
+                    if (json.statuscode === 0) {
+                        Swal.fire({
+                            title: "Success",
+                            html: json.status,
+                            type: "success",
+                            icon: "success",
+                            confirmButtonText: "Ok"
+                        }).then(function(res){
+                            console.log(json, res);
+                            window.location.reload()
+                        });
+                    } else {
+                        Swal.fire({
+                            title: "Error",
+                            html: json.status,
+                            type: "error",
+                            icon: "error",
+                            confirmButtonText: "Ok"
+                        });
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log(errorThrown);
+                    console.log(jqXHR);
+                    Swal.fire({
+                        title: "Error",
+                        html: jqXHR.responseText,
+                        type: "error",
+                        confirmButtonText: "Ok"
+                    });
+                }
+            });
+        }
+            
+    </script>
+
+</body>
+</html>

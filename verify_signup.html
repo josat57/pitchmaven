@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="icon" href="assets/images/favicon-3.ico" type="image/x-icon">
+
+  <link href="assets/css/font-awesome-all.css" rel="stylesheet">
+  <link href="assets/css/flaticon.css" rel="stylesheet">
+  <link href="assets/css/owl.css" rel="stylesheet">
+  <link href="assets/css/bootstrap.css" rel="stylesheet">
+  <link href="assets/css/jquery.fancybox.min.css" rel="stylesheet">
+  <link href="assets/css/animate.css" rel="stylesheet">
+  <link href="assets/css/color.css" rel="stylesheet">
+  <link href="assets/css/global.css" rel="stylesheet">
+  <link href="assets/css/elpath.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/responsive.css" rel="stylesheet">
+ 
+<link rel="stylesheet" href="assets/css/sweetalert2.min.css"> 
+
+  <title>Acelinks | Email Verification </title>
+</head>
+
+<body>
+
+  <!--- Sign  --->
+  <div class="d-flex vh-100 justify-content-center align-items-center">
+    
+        <div id="response" class=" h-80 col-sm-12  bg-white justify-content-center align-items-center flex-column col-md-8 col-lg-8 d-flex">
+            <h1 class="mb-2 text-success" >Success!</h1>
+            <h2 class="mb-4 d-none" id="greet">Hi! <span class="fs-2" id="fullname"></span></h2>
+            <h4 class="mb-2 text-muted">Thank you for subscribing on Acelinks!</h4>
+            <h5 id="response_message" class="alert alert-success rounded p-4 text-secondary"></h5>
+            <a class="btn btn-primary px-4 py-2  mt-2" href="login.html">SIGN IN</a>
+        </div>
+    
+  </div>
+
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/js/popper.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/plugins.js"></script>
+  <script src="assets/js/owl.js"></script>
+  <script src="assets/js/wow.js"></script>
+  <script src="assets/js/validation.js"></script>
+  <script src="assets/js/jquery.fancybox.js"></script>
+  <script src="assets/js/appear.js"></script>
+  <script src="assets/js/scrollbar.js"></script>
+  <script src="assets/js/parallax.min.js"></script>
+  <script src="assets/js/circle-progress.js"></script>
+  <script src="assets/js/jquery.countTo.js"></script>
+  <script src="assets/js/nav-tool.js"></script>
+  <script src="assets/js/isotope.js"></script>
+  <script src="assets/js/jquery.nice-select.min.js"></script>
+  <script src="assets/js/jquery.paroller.min.js"></script>
+  <script src="assets/js/parallax-scroll.js"></script>
+
+  <!-- main-js -->
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/jquery_block_ui.js"></script>
+  <script src="assets/js/sweetalert2.min.js"></script> 
+  
+  <script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $(document).ready(function() {
+        verifyEmail();
+    });
+
+    $(document).ajaxStart($.blockUI()).ajaxStop($.unblockUI());
+    function verifyEmail() {        
+        $.ajax({
+            type: "POST",
+            url: "/backend/",
+            data: {
+                "token": newQueryString('token'),
+                "action": "verify_signup_auth"
+            },
+            dataType: "JSON",
+            success: function (json) {                                                             
+                if (json.statuscode == 0) {
+                    $("#response_message").addClass("text-success");
+                    $("#response_message").html(json.status);
+                    var fullname = json.data.last_name + " " + json.data.first_name;
+                    $("#fullname").text(fullname);
+                    $("#response").removeClass("d-none")
+                    $("#response").addClass("d-flex");
+                    $("#greet").addClass("d-flex")
+                } else {
+                    // window.location.href ="./index.html"; 
+                    $("#response_message").addClass("text-danger");
+                    $("#response_message").html(json.status);
+                    $("#response_message").text(json.status);
+                    $("#response").removeClass("d-none")
+                    $("#greet").addClass("d-none")
+                    $("#response").addClass("d-flex");   
+                }            
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR.responseText)
+                console.log(errorThrown);
+                console.log(jqXHR);
+                Swal.fire({
+                    title: "Error",
+                    html: jqXHR.responseText,
+                    icon: "error",
+                    confirmButtonText: "Ok"
+                });
+            }
+        });
+    }
+
+      function newQueryString(a) {
+          var test = window.location.href;
+          var testArr = test.split("#");
+          test = testArr[0];
+          var findstr = (a + '=');
+          if (test.indexOf(findstr) != -1) {
+              test = test.substring(test.indexOf(findstr) + findstr.length);
+              if (test.indexOf('&') != -1) {
+                  test = test.substring(0, test.indexOf('&'));
+              }
+              return decodeURIComponent(test);
+          }
+          return "";
+      }
+  </script>
+</body>
+
+</html>
