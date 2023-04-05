@@ -1,0 +1,644 @@
+<div class="page-header">
+    <div class="row align-items-end">
+      <div class="col-sm mb-2 mb-sm-0">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb breadcrumb-no-gutter">
+            <li class="breadcrumb-item"><a class="breadcrumb-link" href="javascript:;">Pages</a></li>
+            <li class="breadcrumb-item"><a class="breadcrumb-link" href="javascript:;">Account</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Settings</li>
+          </ol>
+        </nav>
+
+        <h1 class="page-header-title">Settings</h1>
+      </div>
+      <!-- End Col -->
+
+      <div class="col-sm-auto">
+        <a class="btn btn-primary" href="user-profile-my-profile.html">
+          <i class="bi-person-fill me-1"></i> My profile
+        </a>
+      </div>
+      <!-- End Col -->
+    </div>
+    <!-- End Row -->
+  </div>
+  <!-- End Page Header -->
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="d-grid gap-3 gap-lg-5">
+        <!-- Card -->
+        <div class="card">
+          <!-- Profile Cover -->
+          <div class="profile-cover">
+            <div class="profile-cover-img-wrapper">
+              <img id="profileCoverImg" class="profile-cover-img" src="assets/img/1920x400/img2.jpg" alt="Image Description">
+
+              <!-- Custom File Cover -->
+              <div class="profile-cover-content profile-cover-uploader p-3">
+                <input type="file" class="js-file-attach profile-cover-uploader-input" id="profileCoverUplaoder" data-hs-file-attach-options='{
+                            "textTarget": "#profileCoverImg",
+                            "mode": "image",
+                            "targetAttr": "src",
+                            "allowTypes": [".png", ".jpeg", ".jpg"]
+                         }'>
+                <label class="profile-cover-uploader-label btn btn-sm btn-white" for="profileCoverUplaoder">
+                  <i class="bi-camera-fill"></i>
+                  <span class="d-none d-sm-inline-block ms-1">Upload header</span>
+                </label>
+              </div>
+              <!-- End Custom File Cover -->
+            </div>
+          </div>
+          <!-- End Profile Cover -->
+
+          <!-- Avatar -->
+          <label class="avatar avatar-xxl avatar-circle avatar-uploader profile-cover-avatar" for="profile_photo_preview">
+            <img id="editAvatarImgModal" class="avatar-img" src="assets/img/160x160/img6.jpg" alt="Image Description">
+
+            <!-- <input type="file" class="js-file-attach avatar-uploader-input"name="profile_photo" id="" data-hs-file-attach-options='{
+                        "textTarget": "#editAvatarImgModal",
+                        "mode": "image",
+                        "targetAttr": "src",
+                        "allowTypes": [".png", ".jpeg", ".jpg"]
+                     }'> -->
+
+            <span class="avatar-uploader-trigger">
+              <i class="bi-pencil-fill avatar-uploader-icon shadow-sm"></i>
+            </span>
+          </label>
+          <!-- End Avatar -->
+
+          <!-- Body -->
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-5">
+                <span class="d-block fs-5 mb-2">Who can see your profile photo? <i class="bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="Your visibility setting only applies to your profile photo. Your header image is always visible to anyone."></i></span>
+
+                <!-- Select -->
+                <div class="tom-select-custom">
+                  <select class="js-select form-select" data-hs-tom-select-options='{
+                            "searchInDropdown": false,
+                            "dropdownWidth": "auto"
+                          }'>
+                    <option value="privacy1" data-option-template='<div class="d-flex align-items-start"><div class="flex-shrink-0"><i class="bi-globe"></i></div><div class="flex-grow-1 ms-2"><span class="d-block fw-semibold">Anyone</span><span class="tom-select-custom-hide small">Visible to anyone who can view your content. Accessible by installed apps.</span></div></div>'>Anyone</option>
+                    <option value="privacy2" data-option-template='<div class="d-flex align-items-start"><div class="flex-shrink-0"><i class="bi-lock"></i></div><div class="flex-grow-1 ms-2"><span class="d-block fw-semibold">Only you</span><span class="tom-select-custom-hide small">Only visible to you.</span></div></div>'>Only you</option>
+                  </select>
+                </div>
+                <!-- End Select -->
+              </div>
+              <!-- End Col -->
+            </div>
+            <!-- End Row -->
+          </div>
+          <!-- End Body -->
+        </div>
+        <!-- End Card -->
+
+        <!-- Card -->
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title h4">Player Basic Information</h2>
+          </div>
+
+          <!-- Body -->
+          <div class="card-body">
+            <!-- Form -->
+            <form id="addNewPlayerForm">
+
+              <div class="row mb-4">
+                <label for="user_name" class="col-sm-3 col-form-label form-label">User Name</label>
+                    <input type="file" hidden name="profile_photo" id="profile_photo_preview" accept=".jpg, .png, .jpeg">
+                <div class="col-sm-9">
+                </div>
+              </div>
+
+              <div class="row mb-4">
+                <label for="user_name" class="col-sm-3 col-form-label form-label">User Name</label>
+
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" name="user_name" id="user_name" placeholder="User Name" aria-label="user_name" value="examp">
+                </div>
+              </div>
+
+              <!-- Form -->
+              <div class="row mb-4">
+                <label for="first_name" class="col-sm-3 col-form-label form-label">Full name <i class="bi-question-circle text-body ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Displayed on public forums, such as Front."></i></label>
+
+                <div class="col-sm-9">
+                  <div class="input-group input-group-sm-vertical">
+                    <input type="text" class="form-control" name="first_name" id="first_name" placeholder="Your first name" aria-label="Your first name" value="Mark">
+                    <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Your last name" aria-label="Your last name" value="Williams">
+                  </div>
+                </div>
+              </div>
+              <!-- End Form -->
+
+              <!-- Form -->
+              <div class="row mb-4">
+                <label for="other_name" class="col-sm-3 col-form-label form-label">Other Name</label>
+
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" name="other_name" id="other_name" placeholder="Other Name" aria-label="other_name" value="mark@site.com">
+                </div>
+              </div>
+
+              <div class="row mb-4">
+                <label for="email" class="col-sm-3 col-form-label form-label">Email</label>
+
+                <div class="col-sm-9">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Email" aria-label="Email" value="mark@site.com">
+                </div>
+              </div>
+              <!-- End Form -->
+
+              <!-- Form -->
+              <div class="row mb-4">
+                <label for="mobile" class="col-sm-3 col-form-label form-label">Phone <span class="form-label-secondary">(Mandatary)</span></label>
+
+                <div class="col-sm-9">
+                  <input type="text" class="js-input-mask form-control" name="mobile" id="mobile" placeholder="+x(xxx)xxx-xx-xx" aria-label="+x(xxx)xxx-xx-xx" value="+1 (609) 972-22-22" data-hs-mask-options='{
+                           "mask": "+0(000)000-00-00"
+                         }'>
+                </div>
+              </div>
+              <!-- End Form -->
+
+              <!-- Form -->
+              <div class="row mb-4">
+                <label for="place_of_birth" class="col-sm-3 col-form-label form-label">Place-Of-Birth</label>
+
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" name="place_of_birth" id="place_of_birth" placeholder="Place of birth" aria-label="Place of birth" value="General hospital">
+                </div>
+              </div>
+              <!-- End Form -->
+
+              <!-- Form -->
+              <div class="row mb-4">
+                <label for="dob" class="col-sm-3 col-form-label form-label">Date-of-birth</label>
+
+                <div class="col-sm-9">
+                  <input type="date" data-date-format="Y-M-D" class="form-control" name="dob" id="dob" placeholder="Date Of Birth" aria-label="Your date-of-birth">
+                </div>
+              </div>
+              <!-- End Form -->
+
+              <!-- Form -->
+              <div class="row mb-4">
+                <label for="gender" class="col-sm-3 col-form-label form-label">Gender</label>
+
+                <div class="col-sm-9">
+                  <!-- Select -->
+                  <div class="tom-select-custom mb-4">
+                    <select class="js-select form-select" id="gender" name="gender">
+                      <option value="Male" data-option-template='<span class="d-flex align-items-center"><img class="avatar avatar-xss avatar-circle me-2" src="assets/vendor/flag-icon-css/flags/1x1/af.svg" alt="Afghanistan Flag" /><span class="text-truncate">Afghanistan</span></span>'>Male</option>
+                      <option value="Female" data-option-template='<span class="d-flex align-items-center"><img class="avatar avatar-xss avatar-circle me-2" src="assets/vendor/flag-icon-css/flags/1x1/ax.svg" alt="Aland Islands Flag" /><span class="text-truncate">Aland Islands</span></span>'>Female</option>
+                    </select>
+                  </div>
+                </div>
+          </div>
+                  <div class="row mb-4">
+                    <label for="marital_status" class="col-sm-3 col-form-label form-label">Marital Status</label>
+    
+                    <div class="col-sm-9">
+                      <!-- Select -->
+                      <div class="tom-select-custom mb-4">
+                        <select class="js-select form-select" id="marital_status" name="marital_status">
+                          <option value="Single" data-option-template='<span class="d-flex align-items-center"><img class="avatar avatar-xss avatar-circle me-2" src="assets/vendor/flag-icon-css/flags/1x1/af.svg" alt="Afghanistan Flag" /><span class="text-truncate">Afghanistan</span></span>'>Single</option>
+                          <option value="Married" data-option-template='<span class="d-flex align-items-center"><img class="avatar avatar-xss avatar-circle me-2" src="assets/vendor/flag-icon-css/flags/1x1/ax.svg" alt="Aland Islands Flag" /><span class="text-truncate">Aland Islands</span></span>'>Married</option>
+                          <option value="Divorced" data-option-template='<span class="d-flex align-items-center"><img class="avatar avatar-xss avatar-circle me-2" src="assets/vendor/flag-icon-css/flags/1x1/al.svg" alt="Albania Flag" /><span class="text-truncate">Albania</span></span>'>Divorce</option>
+                          <option value="Window" data-option-template='<span class="d-flex align-items-center"><img class="avatar avatar-xss avatar-circle me-2" src="assets/vendor/flag-icon-css/flags/1x1/dz.svg" alt="Algeria Flag" /><span class="text-truncate">Algeria</span></span>'>Window</option>
+                          <option value="Windower" data-option-template='<span class="d-flex align-items-center"><img class="avatar avatar-xss avatar-circle me-2" src="assets/vendor/flag-icon-css/flags/1x1/as.svg" alt="American Samoa Flag" /><span class="text-truncate">American Samoa</span></span>'>Windower</option>
+                        </select>
+                      </div>
+                    </div>
+              </div>
+              <!-- End Form -->
+
+              <!-- Form -->
+              <div class="row mb-4">
+                <label for="location" class="col-sm-3 col-form-label form-label">Location</label>
+
+                <div class="col-sm-9">
+                  <!-- Select -->
+                  <div class="tom-select-custom mb-4">
+                    <select class="js-select form-select" id="country" name="country">
+                      <!-- <option value="">Select Country</option> -->
+                    </select>
+                  </div>
+                  <!-- End Select -->
+
+                  <div class="mb-3">
+                    <input type="text" class="form-control" name="state" id="state" placeholder="state" aria-label="State" value="Abia">
+                  </div>
+
+                  <div class="mb-3">
+                    <input type="text" class="form-control" name="city" id="city" placeholder="city" aria-label="city" value="aba">
+                  </div>
+              </div>
+              <!-- End Form -->
+
+              <!-- Form -->
+              <div class="row mb-4">
+                <label for="street" class="col-sm-3 col-form-label form-label">Street</label>
+
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" name="street" id="street" placeholder="Your street address" aria-label="Your street address" value="45 Roker Terrace, Latheronwheel">
+                </div>
+              </div>
+              <!-- End Form -->
+              <hr class="m-2">
+              <div class="row">
+                <h2 class="card-title h4">Player Field Information</h2>
+              </div>
+              <div class="row mb-4">
+                <label for="position" class="col-sm-3 col-form-label form-label">Player Position</label>
+
+                <div class="col-sm-9">
+                  <select class="form-control" name="position" id="position" >
+                    <option value="">Select Player Position</option>
+                    <option value="GK">Goalkeeper(1)</option>
+                    <option value="RB">Right Back(3)</option>
+                    <option value="LB">Left Back(2)</option>
+                    <option value="CB">Central Back(4 & 5)</option>
+                    <option value="DM">Defensive Midfield(6)</option>
+                    <option value="LW">Left Winger(11)</option>
+                    <option value="RW">Right Winger(7)</option>
+                    <option value="FW">Striker(9)</option>
+                    <option value="CAM">Central Attacking Midfielder(10)</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <label for="team_id" class="col-sm-3 col-form-label form-label">Player Team</label>
+
+                <div class="col-sm-9">
+                  <select class="form-control" name="team_id" id="team_id" >
+                    <option value="">Select Player Team</option>
+                    <option value="GK">Goalkeeper(1)</option>
+                    <option value="RB">Right Back(3)</option>
+                    <option value="LB">Left Back(2)</option>
+                    <option value="CB">Central Back(4 & 5)</option>
+                    <option value="DM">Defensive Midfield(6)</option>
+                    <option value="LW">Left Winger(11)</option>
+                    <option value="RW">Right Winger(7)</option>
+                    <option value="FW">Striker(9)</option>
+                    <option value="CAM">Central Attacking Midfielder(10)</option>
+                  </select>
+                </div>
+              </div>
+             
+              <div class="row mb-4">
+                <div class="form-group col-6">
+                    <label for="height" class="col-sm-3 col-form-label form-label">Player Height</label>
+    
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="height" id="height" placeholder="Player Height">
+                    </div>
+                </div>
+                <div class="form-group col-6">
+                    <label for="weight" class="col-sm-3 col-form-label form-label">Player Weight</label>
+    
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="weight" id="weight" placeholder="Player Weight">
+                    </div>
+                  </div>
+                </div>
+                <div class="row mb-4">
+                    <label for="feet_orientation" class="col-sm-3 col-form-label form-label">Feet Orientation</label>
+    
+                    <div class="col-sm-9">
+                      <select  class="form-control" name="feet_orientation" id="feet_orientation">
+                        <option value="">Select Feet Orientation</option>
+                        <option value="Right Footed">Right Footed</option>
+                        <option value="Left Footed">Left Footed</option>
+                        <option value="Both Footed">Both Footed</option>
+                      </select>
+                    </div>
+                  </div>
+                  <hr class="m-2">
+                  <div class="row">
+                    <h2 class="card-title h4">Guardian Information</h2>
+                  </div>
+                  <div class="row mb-4">
+                    <div class="form-group col-6">
+                        <label for="guardian_last_name" class="col-sm-3 col-form-label form-label">Guardian Last Name</label>
+        
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="guardian_last_name" id="guardain_last_name" placeholder="Guardian Last Name">
+                        </div>
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="guardian_first_name" class="col-sm-3 col-form-label form-label">Guardian First Name</label>
+        
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="guardian_first_name" id="guardain_first_name" placeholder="Guardian First Name">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group col-6">
+                        <label for="guardain_phone" class="col-sm-3 col-form-label form-label">Guardian Phone Number</label>
+        
+                        <div class="col-sm-9">
+                          <input type="phone" class="form-control" name="guardian_phone" id="guardain_phone" placeholder="Guardian Phone Number">
+                        </div>
+                      </div>
+                      <div class="form-group col-6">
+                        <label for="guardian_address" class="col-sm-3 col-form-label form-label">Guardian Address</label>
+        
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="guardian_address" id="guardian_address" placeholder="Guardian Address">
+                        </div>
+                      </div>
+                    </div>
+
+              <div class="d-flex justify-content-end">
+                <button type="button" id="addNewPlayerBtn" class="btn btn-primary">Add Player</button>
+              </div>
+            </form>
+            <!-- End Form -->
+          </div>
+          <!-- End Body -->
+        </div>
+        <!-- End Card -->
+      </div>
+
+      <!-- Sticky Block End Point -->
+      <div id="stickyBlockEndPoint"></div>
+    </div>
+  </div>
+
+  <script>
+     $(document).ready(function(){
+
+
+        getUserProfileDetails();
+
+        getCountries();
+
+        $('#addNewPlayerBtn').click(function (e) {
+          addNewPlayer(e);
+        })
+
+        $("#updateProfileBtn").click(function(e){
+            updateUserProfile(e);
+        });
+
+
+        $("#changePasswordBtn").click(function(e){
+          changePassword(e);
+       });
+
+       $("#updateEmailBtn").click(function(e){
+          updateEmail(e);
+       });
+       
+        const fileInput = document.querySelector("#profile_photo_preview");
+        
+        const previewLogo = () => {
+          const file = fileInput.files;
+          if (file) {
+            const fileReader = new FileReader();
+            const preview = document.querySelector('#editAvatarImgModal');
+            fileReader.onload = function (event) {
+              preview.setAttribute('src', event.target.result);
+            }
+            fileReader.readAsDataURL(file[0]);
+          }
+        }
+        fileInput.addEventListener("change", previewLogo);
+
+     });
+
+     function getCountries(){
+        $.getJSON("../../assets/js/countries.json", (data) =>{
+          $("#country").html("");
+          $("#country").append('<option value="">Select Country...</option>');
+          $.each(data, function (idx, value) {
+              $("#country").append('<option value="' + value.code + '">' + value.name + '</option>');
+          });
+        });
+      }
+
+     function updateUserProfile(e) {
+        e.preventDefault();
+        let formData = new FormData(updateProfileForm);
+        formData.append("action", "update_profile_users");
+        formData.append("update_type", "details");
+        $.ajax({
+          url: "/backend/",
+          type: "POST",
+          data: formData,
+          dataType: "JSON",
+          processData: false,
+          contentType: false,
+          headers: {
+                Authorization: `Bearer ${$.cookie('_jwt')}`,
+          },
+          success: function(json){
+            if (json.statuscode === 0) {
+                Swal.fire({
+                  title: "Success",
+                  html: json.status,
+                  icon: "success",
+                  confirmButtonText: "Okay"
+                })
+            } else {
+              Swal.fire({
+                title: "Error",
+                html: json.status,
+                icon: "error",
+                confirmButtonText: "Okay"
+              });
+            }
+          },
+          error: function(jqXHR, textStatus, errorThrown) {
+             console.log(textStatus);
+          }
+        });
+     }
+
+     function addNewPlayer(e) {
+        e.preventDefault();
+        let formData = new FormData(addNewPlayerForm);
+        formData.append("action", "add_player_admin");
+        formData.append("role", "player");
+        $.ajax({
+          url: "/backend/",
+          type: "POST",
+          data: formData,
+          dataType: "JSON",
+          processData: false,
+          contentType: false,
+          headers: {
+                Authorization: `Bearer ${$.cookie('_jwt')}`,
+          },
+          success: function(json){
+            if (json.statuscode === 0) {
+                Swal.fire({
+                  title: "Success",
+                  html: json.status,
+                  icon: "success",
+                  confirmButtonText: "Okay"
+                })
+            } else {
+              Swal.fire({
+                title: "Error",
+                html: json.status,
+                icon: "error",
+                confirmButtonText: "Okay"
+              });
+            }
+          },
+          error: function(jqXHR, textStatus, errorThrown) {
+             console.log(textStatus);
+          }
+        });
+     }
+
+
+    function updateEmail(e) {
+       e.preventDefault();
+       let formData = new FormData(updateEmailForm);
+       formData.append("action", "update_email_users");
+       $.ajax({
+         url: "/backend/",
+         type: "POST",
+         data: formData,
+         dataType: "JSON",
+         processData: false,
+         contentType: false,
+         headers: {
+               Authorization: `Bearer ${$.cookie('_jwt')}`,
+         },
+         success: function(json){
+           if (json.statuscode === 0) {
+               Swal.fire({
+                 title: "Success",
+                 html: json.status,
+                 icon: "success",
+                 confirmButtonText: "Okay"
+               })
+           } else {
+             Swal.fire({
+               title: "Error",
+               html: json.status,
+               icon: "error",
+               confirmButtonText: "Okay"
+             });
+           }
+         },
+         error: function(jqXHR, textStatus, errorThrown) {
+            console.log(textStatus);
+         }
+       });
+    }
+
+
+    function changePassword(e) {
+       e.preventDefault();
+       let formData = new FormData(changePasswordForm);
+       formData.append("action", "change_password_auth");
+       $.ajax({
+         url: "/backend/",
+         type: "POST",
+         data: formData,
+         dataType: "JSON",
+         processData: false,
+         contentType: false,
+         headers: {
+               Authorization: `Bearer ${$.cookie('_jwt')}`,
+         },
+         success: function(json){
+           if (json.statuscode === 0) {
+               Swal.fire({
+                 title: "Success",
+                 html: json.status,
+                 icon: "success",
+                 confirmButtonText: "Okay"
+               })
+           } else {
+             Swal.fire({
+               title: "Error",
+               html: json.status,
+               icon: "error",
+               confirmButtonText: "Okay"
+             });
+           }
+         },
+         error: function(jqXHR, textStatus, errorThrown) {
+            console.log(textStatus);
+         }
+       });
+    }
+    
+    function getUserProfileDetails() {
+      $.ajax({
+          url: '/backend/',
+          type: 'POST',
+          dataType: 'JSON',
+          data: {
+              'action': 'get_current_users',
+              'token': $.cookie('_jwt')
+          },
+          headers: {
+              Authorization: `Bearer ${$.cookie('_jwt')}`,
+          },
+          success: function(json) {				
+              if (json.statuscode === 0) {
+                  // console.log(json);
+                  const fullName = json.data.last_name + ' ' + json.data.first_name + ' ' + json.data.other_name;
+                  $('#name-value').html(fullName);
+                  const address = json.data.address_street + ", " + json.data.address_city + ", " + json.data.country;
+                  $("#address-value").html(address);
+                  $.each(json.data, function(fields, values) {								
+                      // console.log($('#' + fields + "-value").html(values));
+                      
+                      if ($('#' + fields).prop("tagName") == "SELECT") {
+                          var option = $("<option selected='selected' />")
+                          option.text(values);
+                          if (fields === "country") {
+                            getCountryByCode(values);
+                          } else {
+                            $('#' + fields).prepend(option);
+                          }
+
+                      } else if (fields == "profile_photo") {
+                          var img = new Image();
+                          img.src = "data:image/jpg;base64,"+values;
+                          $("#editAvatarImgModal").attr("src", img.src);
+                      } else if($("#" + fields).is(':checkbox')) {
+                          $("#" + fields).prop("checked") == values;
+                      } else {
+                          $('#' + fields).val(values);
+                          $('.' + fields).val(values);
+                          $('.' + fields).html(values);
+                          $('#' + fields + "_label").text(values);
+                          // console.log(fields + " " + values);
+                      }
+                  });
+                  $(".user-profile-name").text(json.data.first_name + " " + json.data.last_name);
+              } else {              
+                  // document.cookie = "_jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";								
+                  // window.location.href = '../login.html';
+              }
+          },
+          error: function(xhr, status, error) {			
+              // window.location.href = '../login.html';
+              console.log(xhr.responseText);
+            }
+        });
+      }
+
+      function getCountryByCode(code){
+        $.getJSON("../../assets/js/countries.json", (data) =>{
+          $.each(data, function (idx, value) {
+            if (code === value.code) {
+              // $("#country option:selected").html("");
+              $("#country").append('<option value="' + value.code + '">' + value.name + '</option>').trigger("change");             
+            }
+          });
+        });
+      }
+ </script>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/images/polljota_logo_s.png" type="image/png">
+    <!-- Start loading StyleSheets -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">  
+    <link rel="stylesheet" href="assets/css/sweetalert2.min.css">  
+    <link rel="stylesheet" href="assets/css/util.css">  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500;900&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="entry/assets/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="assets/css/signup.css">
+    <title>Gokolect| Sign Up</title>
+</head>
+<body>
+    <main class="main-container">
+        <aside class="side-bar col-6 col-md-6 col-sm-12 col-lg-6">
+            <div class="form-header">
+                <h1 class="form-title">Sign Up</h1>
+                <p class="text-white fw-normal ps-8 pe-8">Subscription on PollJota is just two clicks and you are in! to quickly setup your election process too in no time!!!</p>
+                <a href="index.html" class=""> <img src="assets/images/polljota_logo.png" alt="" class="brand-logo" alt="Polljotter logo" /></a>
+            </div>
+        </aside>
+        <section class="form-section col-6 col-md-6 col-sm-12 col-lg-6">
+            <div class="form-container d-flex justify-content-center align-items-center">               
+                <form class="col-sm-12 col-md-10 col-lg-10 p-4 d-flex flex-column" role="form" id="signupForm">
+                    
+                    <div class="form-group p4 mx-4 my-1">
+                        <label for="first_name">First Name</label>
+                        <input type="text" name="first_name" id="first_name" class="form-control rounded" placeholder="Enter your FirstName" required>
+                    </div>
+
+                    <div class="form-group p4 mx-4 my-1">
+                        <label for="last_name">Last Name</label>
+                        <input type="text" name="last_name" id="last_name" class="form-control rounded" placeholder="Enter your last_name" required>
+                    </div>
+
+                    <div class="form-group p4 mx-4 my-1">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" class="form-control rounded" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="form-group p4 mx-4 my-1">
+                        <label for="mobile">Phone No</label>
+                        <input type="tel" name="mobile" id="mobile" class="form-control rounded" placeholder="Enter your phone" required>
+                    </div>
+
+                    <div class="form-group p4 mx-4 my-1">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" class="form-control rounded" placeholder="Enter your password" required>
+                    </div>
+                    <div class="form-group p4 mx-4 my-1">
+                        <label for="confirm_password">Confirm Password</label>
+                        <input type="password" name="confirm_password" id="confirm_password" class="form-control rounded" placeholder="Confirm your password" required>
+                    </div>
+                    <button class="btn btn-custom-primary rounded my-4 mx-4" id="signup-btn" type="button">Sign Up</button>
+                </form>
+            </div>
+            <p class="text-secondary text-center">Please Login in from <a href="signin.html" class="text-decoration-none text-primary">here</a> if you already created an account!</p>
+        </section>
+    </main> 
+    
+    <script src="assets/js/jQuery3.6.0.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery_block_ui.js"></script>
+    <script src="assets/js/sweetalert2.min.js"></script>
+
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.blockUI();
+        window.addEventListener('DOMContentLoaded', function() {
+            $.unblockUI();
+        });
+
+        $(document).ready(function(){
+            $('#signup-btn').click(function(e){
+                signUp(e);
+            });
+        });
+
+        $(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
+
+        function signUp(e) {
+            e.preventDefault();
+            let formData = new FormData(signupForm);
+            formData.append('action', 'sign_up_auth');        
+            $.ajax({
+                url: "../gokolect_api/web/index.php",
+                type: "POST",
+                data: formData,
+                contentType: false,
+                cache: false,
+                processData: false,
+                dataType: 'JSON',
+                success: function(json){
+                    console.log(json);
+                    if (json.statuscode === 0) {
+                        Swal.fire({
+                            title: "Success",
+                            html: json.status,
+                            icon: "success",
+                            confirmButtonText: "Ok"
+                        }).then(function(){
+                            window.location.href = "signup_success.html";
+                        });
+                    } else {
+                        Swal.fire({
+                            title: "Error",
+                            html: json.status,
+                            icon: "error",
+                            confirmButtonText: "Ok"
+                        });
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log(errorThrown);
+                    console.log(jqXHR);
+                    Swal.fire({
+                        title: "Error",
+                        html: jqXHR.responseText,
+                        icon: "error",
+                        confirmButtonText: "Ok"
+                    });
+                }
+            });
+        }
+
+        // ../gokolect_api/web/index.php
+    </script>
+</body>
+</html>
