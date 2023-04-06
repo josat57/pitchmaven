@@ -2,140 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unity Cup</title>
-    <link rel="stylesheet" href="./james.css">
+    <link rel="stylesheet" href="pages/assets/css/style.css">
+    <link rel="shortcut icon" href="pages/assets/media/images/favicon.png" type="image/png">
+    <title>PitchMaven| For the love of the Game</title>
 </head>
 <body>
-    <main>
-    </hr>
-</hr class="first">
-    <nav>
-        <ul>
-            <li><a href="#">Features</a></li>
-            <li><a href="#">Latest</a></li>
-            <li><a href="#">Sports</a></li>
-            <li><a href="#">Shop</a></li>
-        </ul>
-    </nav>
-    <marquee>COMING BACK STRONGER AND MORE FUN !! <strong> UNITY CUP </strong></marquee>
-    <section>
-      <div class="container"><img  src="pic/bag2.jpg" alt="" width="100%"  height="500">
-        <div class="words">
-            <h1>Unity <strong style="color:coral;"> Challenge</strong> Cup</h1>
-            <p>Brings to the you the best of street football</p>
-            <button class="btn" ><a href="#">Team Registration</a></button>
-        </div>
-    </div>
-    </section>
-
-    <h1 class="shop">Shop</h1>
-    <section>
-        <div class="ship">
-            <img src="https://media-olfr-prd.ol.fr/uploads/assets/Promo_Maillots_2223_2ebcdb4c67.webp" alt="">
-    </div>
-    <div class="list">
-        <div class="boxes">
-        <div class="box">
-            <img src="pic/calendrier-de-lavent-supporter-22-23.webp" alt="">
-            <p>Unity Cup Ablaze</p>
-            <h6>#10,000</h6>
-            <button class="btn1">Buy</button><button class="btn1">Rent</button>
-        </div>
-        <div class="box">
-        <img src="pic/maillot-domicile-homme-22-23.webp" alt="">
-            <p>Unity Cup ejersey</p>
-            <h6>#9,000</h6>
-            <button class="btn1">Buy</button><button class="btn1">Rent</button>
-        </div>
-        <div class="box">
-        <img src="pic/polo-de-sortie-staff-homme-22-23.webp" alt="">
-            <p>Unity Cup jersey</p>
-            <h6>#12,000</h6>
-            <button class="btn1">Buy</button><button class="btn1">Rent</button>
-        </div>
-        <div class="box">
-        <img src="pic/calendrier-de-lavent-supporter-22-23.webp" alt="">
-            <p>Unity Cup Anklet</p>
-            <h6>#10,000</h6>
-            <button class="btn1">Buy</button><button class="btn1">Rent</button>
-        </div>
-    </div>
-    </div>
-        </section>
-        <section>
-            <h1 class="About">About Unity <strong style="color:coral;font-size:30px;">Challenge</strong> Cup</h1>
-        </section>
-        <section>
-              <div class="gallery">
-                <div class="gallery-container">
-                    <img class="gallery-item gallery-item-1" src="pic/bag.jpg" data-index="1">
-                    <img class="gallery-item gallery-item-2" src="pic/bag.jpg" data-index="2">
-                    <img class="gallery-item gallery-item-3" src="pic/bag.jpg" data-index="3">
-                    <img class="gallery-item gallery-item-4" src="pic/bag.jpg" data-index="4">
-                    <img class="gallery-item gallery-item-5" src="pic/bag.jpg" data-index="5">
-                </div>   
-                <div class="gallery-controls"></div> 
+    <main class="main-container">
+        <header class="main-header">
+            <nav class="main-nav">
+                <div class="brand">
+                    <img src="pages/assets/media/images/pitchmaven_logo_web001.png" alt="" class="brand-logg">
                 </div>
-        </section>
-</main>
-<script>
-    const galleryContainer = document.querySelector('.gallery-container');
-const galleryControlsContainer = document.querySelector('.gallery-controls');
-const galleryControls = ['previous', 'next'];
-const galleryItems = document.querySelectorAll('.gallery-item');
+                <ul class="nav-bar">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="#fixtures" class="nav-link">Fixtures</a></li>
+                    <li class="nav-item"><a href="#aboutus" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="#tournamnents" class="nav-link">Tournaments</a></li>
+                    <li class="nav-item"><a href="#taeams" class="nav-link">Teams</a></li>
+                    <li class="nav-item"><a href="#players" class="nav-link">Players</a></li>
+                    <li class="nav-item"><a href="contactus" class="nav-link">Contact Us</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="page-sections" id="fixtures"></section>
+        <section class="page-sections" id="aboutus"></section>
+        <section class="page-sections" id="turnaments"></section>
+        <section class="page-sections" id="teams"></section>
+        <section class="page-sections" id="players"></section>
+        <section class="page-sections" id="contactus"></section>
+        <footer class="main-footer">
+            <p class="copyright">&copy;<span id="footerYear">2020</span></p>
+        </footer>
+    </main>
+    <script src="pages/assets/js/main.js"></script>
 
-class Carousel {
-
-    constructor(container, items , controls){
-    this.carouselContainer = container;
-    this.carouselControls = controls;
-    this.CarouselArray =  [...items];
-    }
-
-    updateGallery(){
-        this.CarouselArray.forEach(el => {
-            el.classList.remove('gallery-item-1');
-            el.classList.remove('gallery-item-2');
-            el.classList.remove('gallery-item-3');
-            el.classList.remove('gallery-item-4');
-            el.classList.remove('gallery-item-5');
-        });
-        this.CarouselArray.slice(0, 5).forEach((el , i) => {
-            el.classList.add('gallery-item-${i+1}');
-        });
-    }
-    setCurrentState(direction){
-        if (direction.className == 'gallery-controls-previous') {
-            this.CarouselArray.unshift(this.CarouselArray.pop());
-        }else{
-            this.CarouselArray.push(this.CarouselArray.shift());
+    <script>
+        window.onload = () => {
+            const date = new Date();
+            const fullYear = date.getFullYear();
+            const footerYear = document.querySelector('#footerYear');
+            footerYear.textContent = fullYear;
         }
-        this.updateGallery();
-    }
-    setControls(){
-        this.carouselControls.forEach(control => {
-            galleryControlsContainer.appendChild(document.createElement('button')).className = 'gallery-controls-${control}';
-            document.querySelector('.gallery-controls-${control}').innerText = control;
-        });
-    }
-
-    useControls(){
-        const triggers = [...galleryControlsContainer.childNodes];
-        triggers.forEach(control => {
-            control.addEventListener('click', e => {
-                e.preventDefault();
-                 this.setCurrentState(control);
-            });
-        });
-    }
-}
-
-const exampleCarousel = new Carousel(galleryContainer, galleryItem , galleryControls);
-
-exampleCarousel.setControls();
-exampleCarousel.useControls();
-</script>
+    </script>
 </body>
 </html>
