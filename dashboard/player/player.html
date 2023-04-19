@@ -839,7 +839,7 @@
             <!-- Account -->
             <div class="dropdown">
               <a class="navbar-dropdown-account-wrapper" href="javascript:;" id="accountNavbarDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" data-bs-dropdown-animation>
-                <div class="avatar avatar-sm avatar-circle">
+                <div class="avatar avatar-sm avatar-circle avatar-initials">
                   <img class="avatar-img header-profile-user profile_photo" src="../assets/img/160x160/img6.jpg" alt="Image Description">
                   <span class="avatar-status avatar-sm-status avatar-status-success"></span>
                 </div>
@@ -848,7 +848,7 @@
               <div class="dropdown-menu dropdown-menu-end navbar-dropdown-menu navbar-dropdown-menu-borderless navbar-dropdown-account" aria-labelledby="accountNavbarDropdown" style="width: 16rem;">
                 <div class="dropdown-item-text">
                   <div class="d-flex align-items-center">
-                    <div class="avatar avatar-sm avatar-circle">
+                    <div class="avatar avatar-sm avatar-circle avatar-initials">
                       <img class="avatar-img header-profile-user profile_photo" src="../assets/img/160x160/img6.jpg" alt="Image Description">
                     </div>
                     <div class="flex-grow-1 ms-3">
@@ -6424,12 +6424,24 @@
                     } else {
                         $("#user_role").text(json.data.role);
                     }
-                    const img = new Image();
-                    img.src = "data:image/jpg;base64," + json.data.profile_photo;
-                    $(".profile_photo").attr("src", img.src);
+                    if ("N/A " === json.data.profile_photo) {
+                        let initials = json.data.first_name.charAt(0) + json.data.last_name.charAt(0);
+                       
+                        const randomColor = Math.floor(Math.random()*16777215).toString(16);
+                        // document.body.style.backgroundColor = "#" + randomColor;
+                        // color.innerHTML = "#" + randomColor;
+                        
+                       $(".avatar-initials").html(initials.toUpperCase());
+                       $(".avatar-initials").css("background-color", "#" + randomColor);
+                       $(".avatar-initials").css("color", "#" + randomColor);
+                    } else {
+                      const img = new Image();
+                      img.src = "data:image/jpg;base64," + json.data.profile_photo;
+                      $(".profile_photo").attr("src", img.src);
+                    }
                 } else {              
                     document.cookie = "_jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=";								
-                    // window.location.href = '/pages/signin.html';
+                    window.location.href = '/pages/signin.html';
                 }
             },
             error: function(xhr, status, error) {			
