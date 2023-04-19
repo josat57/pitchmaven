@@ -162,7 +162,7 @@
                         console.log(json);
                         if (json.statuscode === 0) {
                             storeJWT.setJWT(json.data);
-                            $.cookie('_jwt', json.data, { expires: 1, path: `dashboard/${json.page}/${json.page}.html`});
+                            $.cookie('_jwt', json.data, { expires: 1, path: `../dashboard/${json.page}/${json.page}.html`});
                             Swal.fire({
                                 title: "Success",
                                 html: json.status,
@@ -171,7 +171,7 @@
                                 confirmButtonText: "Ok"
                             }).then(function(res){                            
                                 window.location.href =`../dashboard/${json.page}/${json.page}.html`;
-                                $.removeCookie('_jwtp', { path: 'index.html' });
+                                // $.removeCookie('_jwtp', { path: 'index.html' });
                             });
                         } else {
                             Swal.fire({
