@@ -1293,11 +1293,10 @@
           }
         }
         fileInput.addEventListener("change", previewLogo);
-
      });
 
      function getCountries(){
-        $.getJSON("../assets/js/countries.json", (data) =>{
+        $.getJSON("../../assets/js/countries.json", (data) =>{
           // $("#country").html("");
           // $("#country").append('<option value="">Select Country...</option>');
           $.each(data, function (idx, value) {
@@ -1312,7 +1311,7 @@
         formData.append("action", "update_profile_users");
         formData.append("update_type", "details");
         $.ajax({
-          url: "/backend/",
+          url: "https://pitchmavenapi.bootqlass.com/",
           type: "POST",
           data: formData,
           dataType: "JSON",
@@ -1350,7 +1349,7 @@
        let formData = new FormData(updateEmailForm);
        formData.append("action", "update_email_users");
        $.ajax({
-         url: "/backend/",
+         url: "https://pitchmavenapi.bootqlass.com/",
          type: "POST",
          data: formData,
          dataType: "JSON",
@@ -1388,7 +1387,7 @@
        let formData = new FormData(changePasswordForm);
        formData.append("action", "change_password_auth");
        $.ajax({
-         url: "/backend/",
+         url: "https://pitchmavenapi.bootqlass.com/",
          type: "POST",
          data: formData,
          dataType: "JSON",
@@ -1422,7 +1421,7 @@
     
     function getUserProfileDetails() {
       $.ajax({
-          url: '/backend/',
+          url: 'https://pitchmavenapi.bootqlass.com/',
           type: 'POST',
           dataType: 'JSON',
           data: {
@@ -1467,19 +1466,19 @@
                   });
                   $(".user-profile-name").text(json.data.first_name + " " + json.data.last_name);
               } else {              
-                  // document.cookie = "_jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";								
-                  // window.location.href = '../login.html';
+                  document.cookie = "_jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";								
+                  window.location.href = '/pages/signin.html';
               }
           },
           error: function(xhr, status, error) {			
-              // window.location.href = '../login.html';
+              window.location.href = '/pages/signin.html';
               console.log(xhr.responseText);
             }
         });
       }
 
       function getCountryByCode(code){
-        $.getJSON("../assets/js/countries.json", (data) =>{
+        $.getJSON("../../assets/js/countries.json", (data) =>{
           $.each(data, function (idx, value) {
             if (code === value.code) {
               // $("#country option:selected").html("");
