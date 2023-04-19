@@ -6,27 +6,35 @@
     <link rel="stylesheet" href="pages/assets/css/style.css">
     <link rel="stylesheet" href="pages/assets/css/costum-rules.css">
     <link rel="shortcut icon" href="pages/assets/media/images/favicon.png" type="image/png">
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/util.css">
     <title>PitchMaven| For the love of the Game</title>
 </head>
 <body>
     <main class="main-container">
         <header class="main-header">
-            <nav class="main-nav">
-                <div class="brand">
-                    <img src="pages/assets/media/images/pitchmaven_logo_web001.png" alt="" class="brand-logg">
+            <nav class="navbar navbar-expand-md bg-body-tertiary fixed-top bg-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/">
+                        <img src="img/pitchmaven_logo_web001.png" alt="" class="brand-logg">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+                        <ul class="navbar-nav">
+                            <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                            <li class="nav-item"><a href="#fixtures" class="nav-link">Fixtures</a></li>
+                            <li class="nav-item"><a href="#aboutus" class="nav-link">About Us</a></li>
+                            <li class="nav-item"><a href="#tournaments" class="nav-link">Tournaments</a></li>
+                            <li class="nav-item"><a href="#taeams" class="nav-link">Teams</a></li>
+                            <li class="nav-item"><a href="#players" class="nav-link">Players</a></li>
+                            <li class="nav-item"><a href="contactus" class="nav-link">Contact Us</a></li>
+                        </ul>
+                        <a href="pages/signin.html" class="btn rounded btn-outline-primary ms-4">Sign In</a>
+                        <a href="pages/signup.html" class="btn rounded btn-outline-danger ms-3">Sign Up</a>
+                    </div>
                 </div>
-                <ul class="nav-bar">
-                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="#fixtures" class="nav-link">Fixtures</a></li>
-                    <li class="nav-item"><a href="#aboutus" class="nav-link">About Us</a></li>
-                    <li class="nav-item"><a href="#tournaments" class="nav-link">Tournaments</a></li>
-                    <li class="nav-item"><a href="#taeams" class="nav-link">Teams</a></li>
-                    <li class="nav-item"><a href="#players" class="nav-link">Players</a></li>
-                    <li class="nav-item"><a href="contactus" class="nav-link">Contact Us</a></li>
-                </ul>
-                <a href="pages/signin.html" class="signin-btn">Sign In</a>
             </nav>
 
             <div class="header-content">
@@ -40,9 +48,9 @@
                 <h2 class="sub-title title-lg text-white fw-black text-display-6">
                     For the Love of the Game!
                 </h2>
-                <div class="action-calls">
-                    <a href="#tournaments" class="btn btn-lg rounded btn-outline action-btn">Start a Tournament</a>
-                    <a href="#scout" class="btn btn-lg btn-outline rounded action-btn ms-4">Scout Players</a>
+                <div class="action-calls mt-4">
+                    <a href="#tournaments" class="btn btn-lg rounded btn-primary">Start a Tournament</a>
+                    <a href="#scout" class="btn btn-lg btn-primary rounded ms-4">Scout Players</a>
                 </div>
             </div>
 

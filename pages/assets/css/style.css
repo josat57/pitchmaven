@@ -86,10 +86,10 @@ a {
     background: var(--white);
 }
 
-.nav-bar {
+/* .nav-bar {
     list-style: none;
     display: flex;
-}
+} */
 
 .nav-item {
     position: relative;
@@ -105,11 +105,11 @@ a {
 
 .nav-link::after {
     content: '';
-    width: calc(100% - 25px);
+    width: calc(100% - 20px);
     height: 4px;
     position: absolute;
     bottom: 0px;
-    left: 12.5px;
+    left: 10px;
     background: var(--blue);
     transform: scaleX(0);
     transition: all 0.5s ease-in-out;
@@ -117,20 +117,7 @@ a {
 
 .nav-link:hover::after, .nav-link:focus::after, .nav-link:active::after {
     transform: scaleX(1);
-}
-
-.signin-btn {
-    background-color: var(--white);
-    color: var(--blue);
-    border: 2px solid var(--blue);
-    padding: 10px 15px;
-    border-radius: 10px;
-    transition: all 0.3s ease-in-out;
-}
-
-.signin-btn:hover {
-    border: solid 2px var(--primary);
-    color: var(--primary);
+    background: var(--primary);
 }
 
 .header-content {
