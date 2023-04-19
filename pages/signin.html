@@ -162,7 +162,7 @@
                         console.log(json);
                         if (json.statuscode === 0) {
                             storeJWT.setJWT(json.data);
-                            $.cookie('_jwt', json.data, { expires: 1, path: `../dashboard/${json.page}/${json.page}.html`});
+                            $.cookie('_jwt', json.data, { expires: 1, path: `/dashboard/${json.page}/${json.page}.html`});
                             Swal.fire({
                                 title: "Success",
                                 html: json.status,
