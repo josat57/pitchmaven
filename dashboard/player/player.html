@@ -6426,14 +6426,15 @@
                     }
                     if ("N/A " === json.data.profile_photo) {
                         let initials = json.data.first_name.charAt(0) + json.data.last_name.charAt(0);
-                       
-                        const randomColor = Math.floor(Math.random()*16777215).toString(16);
+                        let char = $("h5").text(initials.toUpperCase());
+                        const bgColor = Math.floor(Math.random()*16777215).toString(16);
+                        const txColor = Math.floor(Math.random()*16777214).toString(17);
                         // document.body.style.backgroundColor = "#" + randomColor;
                         // color.innerHTML = "#" + randomColor;
                         
-                       $(".avatar-initials").html(initials.toUpperCase());
-                       $(".avatar-initials").css("background-color", "#" + randomColor);
-                       $(".avatar-initials").css("color", "#" + randomColor);
+                        char.css("color", "#" + txColor);
+                       $(".avatar-initials").html(char);
+                       $(".avatar-initials").css("background-color", "#" + bgColor);
                     } else {
                       const img = new Image();
                       img.src = "data:image/jpg;base64," + json.data.profile_photo;
