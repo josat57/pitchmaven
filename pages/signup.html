@@ -4,106 +4,75 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
-<title>Atrix - HTML 5 Template Preview</title>
-
 <!-- Fav Icon -->
-<link rel="icon" href="../assets/images/favicon-3.ico" type="image/x-icon">
+<link rel="icon" href="../img/favicon.png" type="image/png">
 
-<!-- Stylesheets -->
-<link href="../assets/css/font-awesome-all.css" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/util.css">
-<link href="../assets/css/bootstrap.css" rel="stylesheet">
-<!-- <link href="../assets/css/flaticon.css" rel="stylesheet">
-<link href="../assets/css/owl.css" rel="stylesheet">
-<link href="../assets/css/jquery.fancybox.min.css" rel="stylesheet">
-<link href="../assets/css/animate.css" rel="stylesheet">
-<link href="../assets/css/color.css" rel="stylesheet">
-<link href="../assets/css/global.css" rel="stylesheet">
-<link href="../assets/css/elpath.css" rel="stylesheet"> -->
-<link href="../assets/css/responsive.css" rel="stylesheet">
-
-<link href="../assets/css/style.css" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/sweetalert2.min.css"> 
-
+<link rel="stylesheet" href="../assets/css/bootstrap.css">  
+    <link rel="stylesheet" href="../assets/css/sweetalert2.min.css">  
+    <link rel="stylesheet" href="../assets/css/util.css">  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500;900&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="entry/assets/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="../assets/css/signup.css">
+    <title>PitchMaven- Strengthen the local leagues just for the love of the game!| Sign Up</title>
 </head>
-
-
-<!-- page wrapper -->
 <body>
-
     <main class="main-container">
-        <section class="col-sm-12 col-md-6 col-lg-8 col-xl-8 info-container" style="height: 100vh;">
-            <div class="text p_relative d_flex flex-column main-content">  
-                <h1 class="auth-title mb-4 text-white">PitchMaven</h1>              
-                <p class="fs_16 font_family_poppins text-white">Already have an account? <a href="login.html">Sign In here</a></p>
+        <section class="side-bar col-md-6 col-sm-12 col-lg-6">
+            <div class="form-header">
+                <a href="index.html" class="brand-img"> <img src="../img/pitchmaven_logo_web001.png" alt="PitchMaven Brand Logo" class="brand-logo" /></a>
+                <p class="fw-normal text-white">Strengthen the local leagues just for the love of the game!</p>
             </div>
         </section>
-
-        <section class="col-sm-12 col-md-6 col-lg-4 col-xl-4 form-container">
-            <h3 class="auth-title mb-4">Registration</h3>
-            <form id="registrationForm" class="col-sm-12 col-md-10 col-lg-10 col-xl-10">
-                <div class="form-floating mb-3">
-                    <label for="last_name">LastName <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last name/Surname" required>
-                </div>
-                <div class="form-floating mb-3">
-                    <label for="first_name">FirstName <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First name" required>
-                </div>
-                <div class="form-floating mb-3">
-                    <label for="email">Email <span class="text-danger">*</span></label>
-                    <input type="email" class="form-control"id="email" name="email" placeholder="Email" required>
-                </div>
-                <div class="form-floating mb-3">
-                    <label for="mobile">Mobile <span class="text-danger">*</span></label>
-                    <input type="tel" class="form-control" id="mobile" name="mobile" placeholder="Mobile" required>
-                </div>
-                <div class="form-floating mb-3">
-                    <label for="password">Password <span class="text-danger">*</span></label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
-                </div>
-                <div class="form-floating mb-3">
-                    <label for="confirm_password">Confirm Password <span class="text-danger">*</span></label>
-                    <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required>
-                </div>
-                <div class="form-group clearfix">
-                    <div class="check-box">
-                        <input class="form-control" type="checkbox" id="checkbox" name="license_agreement">
-                        <label for="checkbox">I agree the User Agreement and<br /><a href="#terms-condition.html" class="d_iblock fs_16 font_family_poppins">Terms & Condition.</a></label>
+        <section class="form-section col-md-6 col-sm-12 col-lg-6">
+            <h1 class="form-title mt-4">Sign Up</h1>
+            <div class="form-container" id="signInContainer">               
+                <form class="p-2 d-flex flex-column col-sm-12" role="form" id="signupForm">
+                    <div class="form-group p4 mx-4 my-1">
+                        <label for="first_name">First Name</label>
+                        <input type="text" name="first_name" id="first_name" class="form-control rounded" placeholder="Enter your FirstName" required>
                     </div>
-                </div>
-                <div class="form-group message-btn">
-                    <button type="button" class="btn btn-primary" id="registrationBtn">Start Registration</button>
-                </div>
-            </form>
+
+                    <div class="form-group p4 mx-4 my-1">
+                        <label for="last_name">Last Name</label>
+                        <input type="text" name="last_name" id="last_name" class="form-control rounded" placeholder="Enter your last_name" required>
+                    </div>
+
+                    <div class="form-group p4 mx-4 my-1">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" class="form-control rounded" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="form-group p4 mx-4 my-1">
+                        <label for="mobile">Phone No</label>
+                        <input type="tel" name="mobile" id="mobile" class="form-control rounded" placeholder="Enter your phone" required>
+                    </div>
+
+                    <div class="form-group p4 mx-4 my-1">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" class="form-control rounded" placeholder="Enter your password" required>
+                    </div>
+                    <div class="form-group p4 mx-4 my-1">
+                        <label for="confirm_password">Confirm Password</label>
+                        <input type="password" name="confirm_password" id="confirm_password" class="form-control rounded" placeholder="Confirm your password" required>
+                    </div>
+                    <div class="form-group mx-4 my-1">
+                        <button class="btn btn-custom-primary rounded w-100" id="signup-btn" type="button">Sign Up</button>
+                    </div>               
+                </form>
+                <footer class="form-footer">
+                    <p class="text-secondary text-center p-4">Login in from <a href="signin.html" class="text-decoration-none text-primary">here</a> if you already have an account!</p>
+                </footer>
+            </div>
         </section>
-    </main>
-
-
+    </main> 
+    
     <script src="../assets/js/jquery.js"></script>
     <script src="../assets/js/bootstrap.min.js"></script>
-    <!-- <script src="../assets/js/popper.min.js"></script>
-    <script src="../assets/js/plugins.js"></script>
-    <script src="../assets/js/owl.js"></script>
-    <script src="../assets/js/wow.js"></script>
-    <script src="../assets/js/validation.js"></script>
-    <script src="../assets/js/jquery.fancybox.js"></script>
-    <script src="../assets/js/appear.js"></script>
-    <script src="../assets/js/scrollbar.js"></script>
-    <script src="../assets/js/parallax.min.js"></script>
-    <script src="../assets/js/circle-progress.js"></script>
-    <script src="../assets/js/jquery.countTo.js"></script>
-    <script src="../assets/js/nav-tool.js"></script>
-    <script src="../assets/js/isotope.js"></script>
-    <script src="../assets/js/jquery.nice-select.min.js"></script>
-    <script src="../assets/js/jquery.paroller.min.js"></script>
-    <script src="../assets/js/parallax-scroll.js"></script> -->
-
-    <!-- main-js -->
-    <!-- <script src="../assets/js/script.js"></script> -->
     <script src="../assets/js/jquery_block_ui.js"></script>
     <script src="../assets/js/sweetalert2.min.js"></script>
-    
+
     <script>
         $.ajaxSetup({
             headers: {
@@ -116,16 +85,16 @@
         });
 
         $(document).ready(function(){
-            $('#registrationBtn').click(function(e){
+            $('#signup-btn').click(function(e){
                 signUp(e);
             });
-        });
+        }); 
 
         $(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
 
         function signUp(e) {
             e.preventDefault();
-            let formData = new FormData(registrationForm);
+            let formData = new FormData(signupForm);
             formData.append('action', 'sign_up_auth');        
             $.ajax({
                 url: "https://pitchmavenapi.bootqlass.com/",
@@ -155,12 +124,12 @@
                         });
                     }
                 },
-                error: function(jqXHR, textStatus, errorThrown) {                    
-                    let str = JSON.stringify(jqXHR.responseText);
-                    console.log(str, textStatus, errorThrown);
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log(errorThrown);
+                    console.log(jqXHR);
                     Swal.fire({
                         title: "Error",
-                        html: JSON.parse(str),
+                        html: jqXHR.responseText,
                         icon: "error",
                         confirmButtonText: "Ok"
                     });

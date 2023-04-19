@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
 <title>Atrix - HTML 5 Template Preview</title>
@@ -10,124 +9,99 @@
 <!-- Fav Icon -->
 <link rel="shortcut icon" href="../favicon.png" type="image/png">
 
-<!-- Stylesheets -->
-<link href="../assets/css/bootstrap.css" rel="stylesheet">
-<link href="../assets/css/font-awesome-all.css" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/util.css">
-<!-- <link href="../assets/css/flaticon.css" rel="stylesheet">
-<link href="../assets/css/owl.css" rel="stylesheet">
-<link href="../assets/css/jquery.fancybox.min.css" rel="stylesheet">
-<link href="../assets/css/animate.css" rel="stylesheet">
-<link href="../assets/css/color.css" rel="stylesheet">
-<link href="../assets/css/global.css" rel="stylesheet">
-<link href="../assets/css/elpath.css" rel="stylesheet">
-<link href="../assets/css/responsive.css" rel="stylesheet"> -->
-<link href="../assets/css/style.css" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/sweetalert2.min.css">
-
+<link rel="stylesheet" href="../assets/css/bootstrap.css">  
+<link rel="stylesheet" href="../assets/css/sweetalert2.min.css">  
+<link rel="stylesheet" href="../assets/css/util.css">  
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/signup.css">
+<title>Gokolect- Focussed on social good of the society where giving is the life style of every man.| Sign Up</title>
 </head>
-
-
-<!-- page wrapper -->
 <body>
-
-    <main class="main-container">
-        <section class="col-sm-12 col-md-6 col-lg-8 col-xl-8 info-container" style="height: 100vh;">
-            <div class="text p_relative d_flex flex-column main-content">  
-                <h1 class="auth-title mb-4 text-white">PitchMaven</h1>              
-                <p class="fs_16 font_family_poppins text-white">You can register if you are not? <a href="signup.html">Register Here</a></p>
-            </div>
-        </section>
-
-        <section class="col-sm-12 col-md-6 col-lg-4 col-xl-4 form-container">
-            <div class="form-container col-12" id="signInContainer">
-                <h3 class="auth-title mb-4">Sign In</h3>
-                <form id="signInForm" class="col-sm-12 col-md-10 col-lg-10 col-xl-10">                
-                    <div class="form-floating mb-3">
-                        <label for="email">Email<span class="text-danger">*</span></label>
-                        <input type="email" class="form-control"id="email" name="email" placeholder="Email" required>
-                    </div>
-
-                    <div class="form-floating mb-3">
-                        <label for="password">Password<span class="text-danger">*</span></label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
-                    </div>
-
-                    <div class="form-group d-flex justify-content-between">
-                        <div class="check-box">
-                            <input class="form-control" type="checkbox" id="rememberme" title="remember me">
-                            <label for="checkbox">Remember Me</label>
-                        </div>
-                        <a href="#" class="link text-decoration-none text-danger fw-bold" id="resetLink">Forgot Password?</a>
-                    </div>
-                    <!-- <div class="form-group clearfix">
-                    </div> -->
-                    <div class="form-group message-btn">
-                        <button type="button" id="signInBtn" class="btn btn-primary">Sign In <i class="icon-4"></i></button>
-                    </div>
-                </form>
-            </div>
-
-            <div class="d-none flex-column justify-content-between align-items-center col-12" id="resetContainer" arial-hidden="true">
-                <div class="alert alert-warning alert-outline rounded ms-5 me-5 mt-2">
-                    If you are sure you have forgotten your password then you will need to reset your password
+<main class="main-container">
+    <section class="side-bar col-md-6 col-sm-12 col-lg-6">
+        <div class="form-header">
+            <a href="../index.html" class="brand-img"> <img src="../img/pitchmaven_logo_web001.png" alt="PitchMaven Brand Logo" class="brand-logo" /></a>
+            <p class="fw-normal text-white">To Strengthen the local leagues just for the love of the game!</p>
+        </div>
+    </section>
+    <section class="form-section col-md-6 col-sm-12 col-lg-6">
+        <h1 class="form-title mt-4">Sign In</h1>
+        <div class="form-container" id="signInContainer">               
+            <form class="p-2 d-flex flex-column col-sm-12" role="form" id="loginForm">
+                <div class="form-group p4 mx-4 my-1">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" class="form-control rounded" placeholder="Enter your email" required>
                 </div>
-                <p class="text-muted p-3 ms-5 me-5 mt-2 mb-2" id="responseText">
-                    A password reset link will be sent to your email, with instructions how to reset your password.
+
+                <div class="form-group p4 mx-4 my-1">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" class="form-control rounded" placeholder="Enter your password" required>
+                </div>
+                <div class="form-group mx-4 my-1 util-box">
+                    <div class="form-check text-muted">
+                        <input type="checkbox" class="form-check-input" name="remember_me" id="remember_me" />
+                        <label for="remember_me" class="form-check-label">Remember Me</label>
+                    </div>
+                    <div class="">
+                        <a href="#" class="link text-decoration-none text-danger" id="resetLink">Forgot Password?</a>
+                    </div>
+                </div>   
+                <div class="form-group mx-4 my-1">
+                    <button class="btn btn-custom-primary rounded w-100" id="signInBtn" type="button">Sign In</button>
+                </div>                 
+            </form>
+            <footer class="form-footer">
+                <p class="text-secondary text-center p-4">
+                    You can quickly subscribe from 
+                    <a href="signup.html" class="text-decoration-none text-primary">here</a> if you have not done so!
                 </p>
-                <form class="col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex flex-column" role="form" id="passwordResetForm">
-                    <div class="form-floating mb-3">
-                        <label for="email">Email</label>
-                        <input type="email" name="reset_email" id="reset_email" class="form-control form-control-solid rounded" placeholder="Enter your email" required>
-                    </div>                  
-
-                    <button class="btn btn-primary" id="passwordResetBtn" type="button">Reset Password</button>
-                </form>
-
-                <form class="col-sm-12 col-md-10 col-lg-10 p-4 d-none flex-column" role="form" id="confirmResetForm">
-                    <div class="form-floating mb-3">
-                        <label for="confirm_code">Confirm OTC</label>
-                        <input type="text" name="confirm_code" id="confirm_code" class="form-control form-control-solid rounded" placeholder="Enter your Code" required>
-                    </div>                  
-                    <div class="form-floating mb-3">
-                        <label for="new_password">New Password</label>
-                        <input type="password" name="new_password" id="new_password" class="form-control form-control-solid rounded" placeholder="Enter new password" required>
-                    </div>                  
-                    <div class="form-floating mb-3">
-                        <label for="confirm_password">Confirm Password</label>
-                        <input type="password" name="confirm_password" id="confirm_password" class="form-control form-control-solid rounded" placeholder="Retype your password" required>
-                    </div>                  
-
-                    <button class="theme-btn theme-btn-five" id="resetPasswordBtn" type="button">Reset Password</button>
-                </form>
+            </footer>
+        </div>
+        <div class="form-container d-none flex-column justify-content-between align-items-center" id="resetContainer" arial-hidden="true">
+            <div class="alert alert-warning alert-outline rounded ms-5 me-5 mt-2">
+                If you are sure you have forgotten your password then you will need to reset your password
             </div>
-        </section>
-    </main>
+            <p class="text-muted p-3 ms-5 me-5 mt-2 mb-2" id="responseText">
+                A password reset link will be sent to your email, with instructions how to reset your password.
+            </p>
+            <form class="col-sm-12 col-md-10 col-lg-10 p-4 d-flex flex-column" role="form" id="passwordResetForm">
+                <div class="form-group p4 mx-4 my-1">
+                    <label for="email">Email</label>
+                    <input type="email" name="reset_email" id="reset_email" class="form-control form-control-solid rounded" placeholder="Enter your email" required>
+                </div>                  
 
 
-    <script src="../assets/js/jquery.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <!-- <script src="../assets/js/popper.min.js"></script>
-    <script src="../assets/js/plugins.js"></script>
-    <script src="../assets/js/owl.js"></script>
-    <script src="../assets/js/wow.js"></script>
-    <script src="../assets/js/validation.js"></script>
-    <script src="../assets/js/jquery.fancybox.js"></script>
-    <script src="../assets/js/appear.js"></script>
-    <script src="../assets/js/scrollbar.js"></script>
-    <script src="../assets/js/parallax.min.js"></script>
-    <script src="../assets/js/circle-progress.js"></script>
-    <script src="../assets/js/jquery.countTo.js"></script>
-    <script src="../assets/js/nav-tool.js"></script>
-    <script src="../assets/js/isotope.js"></script>
-    <script src="../assets/js/jquery.nice-select.min.js"></script>
-    <script src="../assets/js/jquery.paroller.min.js"></script>
-    <script src="../assets/js/parallax-scroll.js"></script> -->
-   
-    <!-- <script src="../assets/js/script.js"></script> -->
-    <script src="../assets/js/jquery_block_ui.js"></script>
-    <script src="../assets/js/sweetalert2.min.js"></script>
-    <script src="../assets/js/jquery.cookie.js"></script>
+                <button class="btn btn-custom-primary rounded my-4 mx-4" id="passwordResetBtn" type="button">Reset Password</button>
+            </form>
+
+            <form class="col-sm-12 col-md-10 col-lg-10 p-4 d-none flex-column" role="form" id="confirmResetForm">
+                <div class="form-group p4 mx-4 my-1">
+                    <label for="confirm_code">Confirm OTC</label>
+                    <input type="text" name="confirm_code" id="confirm_code" class="form-control form-control-solid rounded" placeholder="Enter your Code" required>
+                </div>                  
+                <div class="form-group p4 mx-4 my-1">
+                    <label for="new_password">New Password</label>
+                    <input type="password" name="new_password" id="new_password" class="form-control form-control-solid rounded" placeholder="Enter new password" required>
+                </div>                  
+                <div class="form-group p4 mx-4 my-1">
+                    <label for="confirm_password">Confirm Password</label>
+                    <input type="password" name="confirm_password" id="confirm_password" class="form-control form-control-solid rounded" placeholder="Retype your password" required>
+                </div>                  
+
+
+                <button class="btn btn-custom-primary rounded my-4 mx-4" id="resetPasswordBtn" type="button">Reset Password</button>
+            </form>
+        </div>
+    </section>
+</main> 
+
+<script src="../assets/js/jquery.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/jquery_block_ui.js"></script>
+<script src="../assets/js/sweetalert2.min.js"></script>
+<script src="../assets/js/jquery.cookie.js"></script>
 
     <script>
         $.ajaxSetup({
@@ -172,14 +146,14 @@
 
         function signIn(e, storeJWT) {
             e.preventDefault();
-            let formData = new FormData(signInForm);
+            let formData = new FormData(loginForm);
             formData.append('action', 'sign_in_auth');        
             $.ajax({
                 url: "https://pitchmavenapi.bootqlass.com/",
                 type: "POST",
-                headers: {
-                    "Content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-                },
+                // headers: {
+                //     "Content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+                // },
                 data: formData,
                 contentType: false,
                 cache: false,
@@ -198,6 +172,7 @@
                             confirmButtonText: "Ok"
                         }).then(function(res){                            
                             window.location.href =`dashboard/${json.page}/${json.page}.html`;
+                            $.removeCookie('_jwtp', { path: 'index.html' });
                         });
                     } else {
                         Swal.fire({
