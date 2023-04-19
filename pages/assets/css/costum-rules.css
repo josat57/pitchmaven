@@ -1,0 +1,461 @@
+:root {
+    --primary: #D6044F;
+    --secondary: #444444;
+    --warning: #ffc800;
+    --success: #099b61;
+    --info: #3980c6;
+    --dark: #000000;
+    --danger: #ff3300;
+    --blue: #1e90ff;
+    --white: #ffffff;
+    --light: #f0f0f0;
+    --bg-img: linear-gradient(to bottom left, rgba(214, 4, 79, 0.89), rgba(4, 125, 214, 0.45));    
+}
+
+/* Text Styles */
+.text-primary {
+    color: var(--primary)!important;
+}
+
+.text-white {
+    color: var(--white)!important;
+}
+
+.text-light {
+    color: var(--light)!important;
+}
+
+.text-dark {
+    color: var(--dark)!important;
+}
+
+.text-danger {
+    color: var(--danger)!important;
+}
+
+.text-success {
+    color: var(--success)!important;
+}
+
+.text-secondary {
+    color: var(--secondary)!important;
+}
+
+.text-warning {
+    color: var(--warning)!important;
+}
+
+.text-info {
+    color: var(--info)!important;
+}
+
+/* Fonts Style */
+.fw-thin {
+    font-weight: 100;
+}
+
+.fw-light {
+    font-weight: 400;
+}
+
+.fw-bold {
+    font-weight: 600;
+}
+
+.fw-black {
+    font-weight: 900;
+}
+
+.text-display-1 {
+    font-size: 0.14em;
+}
+
+.text-display-8 {
+    font-size: 10em;
+}
+
+.text-display-1 {
+    font-size: 0.5em;
+}
+
+.text-display-2 {
+    font-size: 1em;
+}
+
+.text-display-3 {
+    font-size: 1.5em;
+}
+
+.text-display-4 {
+    font-size: 2em;
+}
+
+.text-display-5 {
+    font-size: 3.5em;
+}
+
+.text-display-6 {
+    font-size: 4.2em;
+}
+
+.text-display-7 {
+    font-size: 6em;
+}
+
+/* Background styles */
+.bg-white {
+    background: var(--white)!important;
+}
+
+.bg-light {
+    background: var(--light)!important;
+}
+
+.bg-dark {
+    background: var(--dark)!important;
+}
+
+.bg-danger {
+    background: var(--danger)!important;
+}
+
+.bg-success {
+    background: var(--success)!important;
+}
+
+.bg-secondary {
+    background: var(--secondary)!important;
+}
+
+.bg-warning {
+    background: var(--warning)!important;
+}
+
+.bg-info {
+    background: var(--info)!important;
+}
+
+.bg-primary {
+    background: var(--primary)!important;
+}
+
+/* Buttons style */
+.btn {
+    outline: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-family: 'Poppins';
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    transition: all 300ms ease-in-out;
+}
+
+.btn-primary:hover {
+    background: var(--bg-img);
+    color: var(--white);
+}
+
+.btn-primary {
+    background: var(--primary)!important;
+    color: var(--white)!important;
+}
+
+.btn-sm {
+    padding: 8px 14px;
+}
+
+.btn-lg {
+    padding: 12px 20px !important;
+    font-size: 16px!important;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--white);
+    border: solid 2px var(--white)!important;
+}
+
+.btn-outline:hover {
+    border: solid 2px var(--primary)!important;
+    color: var(--white);
+}
+
+/* Margin */
+.m-1 {
+    margin-right: 2px;
+}
+
+.m-2 {
+    margin-right: 10px;
+}
+
+.m-3 {
+    margin-right: 18px;
+}
+
+.m-4 {
+    margin-right: 22px;
+}
+
+.me-1 {
+    margin-right: 2px;
+}
+
+.me-2 {
+    margin-right: 10px;
+}
+
+.me-3 {
+    margin-right: 18px;
+}
+
+.me-4 {
+    margin-right: 22px;
+}
+
+.ms-1 {
+    margin-left: 2px;
+}
+
+.ms-2 {
+    margin-left: 10px;
+}
+
+.ms-3 {
+    margin-left: 18px;
+}
+
+.ms-4 {
+    margin-left: 22px;
+}
+
+.mt-1 {
+    margin-top: 2px;
+}
+
+.mt-2 {
+    margin-top: 10px;
+}
+
+.mt-3 {
+    margin-top: 18px;
+}
+
+.mt-4 {
+    margin-top: 22px;
+}
+
+.mb-1 {
+    margin-bottom: 2px;
+}
+.mt-2 {
+    margin-bottom: 10px;
+}
+.mb-3 {
+    margin-bottom: 18px;
+}
+.mb-4 {
+    margin-bottom: 22px;
+}
+
+/*Padding*/
+.p-1 {
+    padding: 2px;
+}
+
+.p-2 {
+    padding: 10px;
+}
+
+.p-3 {
+    padding: 18px;
+}
+
+.p-4 {
+    padding: 22px;
+}
+
+.pt-1 {
+    padding-top: 2px;
+}
+
+.pt-2 {
+    padding-left: 10px;
+}
+
+.pt-3 {
+    padding-top: 18px;
+}
+
+.pt-4 {
+    padding-top: 22px;
+}
+
+.pb-1 {
+    padding-bottom: 2px;
+}
+
+.pb-2 {
+    padding-bottom: 10px;
+}
+
+.pb-3 {
+    padding-bottom: 18px;
+}
+
+.pb-4 {
+    padding-bottom: 22px;
+}
+
+.pe-1 {
+    padding-right: 2px;
+}
+
+.pe-2 {
+    padding-right: 10px;
+}
+
+.pe-3 {
+    padding-right: 18px;
+}
+
+.pe-4 {
+    padding-right: 22px;
+}
+
+.ps-1 {
+    padding-left: 2px;
+}
+
+.ps-2 {
+    padding-left: 10px;
+}
+
+.ps-3 {
+    padding-left: 18px;
+}
+
+.ps-4 {
+    padding-left: 22px;
+}
+
+.border-0 {
+    border: none!important;
+}
+
+.border-light-1 {
+    border: solid 1px var(--light);
+}
+
+.border-light-2 {
+    border: solid 2px var(--light);
+}
+
+.border-light-3 {
+    border: solid 3px var(--light);
+}
+
+.border-light-4 {
+    border: solid 4px var(--light);
+}
+
+.border-primary-1 {
+    border: solid 1px var(--primary);
+}
+
+.border-primary-2 {
+    border: solid 2px var(--primary);
+}
+
+.border-primary-3 {
+    border: solid 3px var(--primary);
+}
+
+.border-primary-4 {
+    border: solid 4px var(--primary);
+}
+
+.border-secondary-1 {
+    border: solid 1px var(--secondary);
+}
+
+.border-secondary-2 {
+    border: solid 2px var(--secondary);
+}
+
+.border-secondary-3 {
+    border: solid 3px var(--secondary);
+}
+
+.border-secondary-4 {
+    border: solid 4px var(--secondary);
+}
+
+.border-warning-1 {
+    border: solid 1px var(--warning);
+}
+
+.border-warning-2 {
+    border: solid 2px var(--warning);
+}
+
+.border-warning-3 {
+    border: solid 3px var(--warning);
+}
+
+.border-warning-4 {
+    border: solid 4px var(--warning);
+}
+
+.border-success-1 {
+    border: solid 1px var(--success);
+}
+.border-success-2 {
+    border: solid 2px var(--success);
+}
+.border-success-3 {
+    border: solid 3px var(--success);
+}
+.border-success-4 {
+    border: solid 4px var(--success);
+}
+
+.border-dark-1 {
+    border: solid 1px var(--dark);
+}
+.border-dark-2 {
+    border: solid 2px var(--dark);
+}
+.border-dark-3 {
+    border: solid 3px var(--dark);
+}
+.border-dark-4 {
+    border: solid 4px var(--dark);
+}
+
+.rounded {
+    border-radius: 8px;
+    outline: none;
+    border: none;
+}
+
+.rounded-circle {
+    border-radius: 360px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    object-fit: cover;
+    outline: none;
+    border: none;
+}
+
+.card {
+    background: var(--light);
+    padding: 20px;
+    position: relative;
+    width: max-content;
+    height: auto;
+}
