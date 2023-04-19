@@ -8,21 +8,21 @@
 <title>Atrix - HTML 5 Template Preview</title>
 
 <!-- Fav Icon -->
-<link rel="icon" href="assets/images/favicon-3.ico" type="image/x-icon">
+<link rel="icon" href="../assets/images/favicon-3.ico" type="image/x-icon">
 
 <!-- Stylesheets -->
-<link href="assets/css/font-awesome-all.css" rel="stylesheet">
-<link href="assets/css/flaticon.css" rel="stylesheet">
-<link href="assets/css/owl.css" rel="stylesheet">
-<link href="assets/css/bootstrap.css" rel="stylesheet">
-<link href="assets/css/jquery.fancybox.min.css" rel="stylesheet">
-<link href="assets/css/animate.css" rel="stylesheet">
-<link href="assets/css/color.css" rel="stylesheet">
-<link href="assets/css/global.css" rel="stylesheet">
-<link href="assets/css/elpath.css" rel="stylesheet">
-<link href="assets/css/style.css" rel="stylesheet">
-<link href="assets/css/responsive.css" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/sweetalert2.min.css">
+<link href="../assets/css/bootstrap.css" rel="stylesheet">
+<link href="../assets/css/font-awesome-all.css" rel="stylesheet">
+<!-- <link href="../assets/css/flaticon.css" rel="stylesheet">
+<link href="../assets/css/owl.css" rel="stylesheet">
+<link href="../assets/css/jquery.fancybox.min.css" rel="stylesheet">
+<link href="../assets/css/animate.css" rel="stylesheet">
+<link href="../assets/css/color.css" rel="stylesheet">
+<link href="../assets/css/global.css" rel="stylesheet">
+<link href="../assets/css/elpath.css" rel="stylesheet">
+<link href="../assets/css/responsive.css" rel="stylesheet"> -->
+<link href="../assets/css/style.css" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/sweetalert2.min.css">
 
 </head>
 
@@ -32,14 +32,15 @@
 
     <main class="main-container">
         <section class="col-sm-12 col-md-6 col-lg-8 col-xl-8 info-container" style="height: 100vh;">
-            <div class="text p_relative d_flex flex-column main-content">
-                <h3 class="auth-title">Sign In</h3>
-                <p class="fs_16 font_family_poppins">You can register if you are not? <a href="registration.html">Register Here</a></p>
+            <div class="text p_relative d_flex flex-column main-content">  
+                <h1 class="auth-title mb-4 text-white">PitchMaven</h1>              
+                <p class="fs_16 font_family_poppins text-white">You can register if you are not? <a href="signup.html">Register Here</a></p>
             </div>
         </section>
 
         <section class="col-sm-12 col-md-6 col-lg-4 col-xl-4 form-container">
             <div class="form-container col-12" id="signInContainer">
+                <h3 class="auth-title mb-4">Sign In</h3>
                 <form id="signInForm" class="col-sm-12 col-md-10 col-lg-10 col-xl-10">                
                     <div class="form-floating mb-3">
                         <label for="email">Email<span class="text-danger">*</span></label>
@@ -51,17 +52,17 @@
                         <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                     </div>
 
-                    <div class="form-group clearfix">
+                    <div class="form-group d-flex justify-content-between">
                         <div class="check-box">
-                            <input class="check" type="checkbox" id="checkbox">
+                            <input class="form-control" type="checkbox" id="rememberme" title="remember me">
                             <label for="checkbox">Remember Me</label>
                         </div>
-                    </div>
-                    <div class="form-group clearfix">
                         <a href="#" class="link text-decoration-none text-danger fw-bold" id="resetLink">Forgot Password?</a>
                     </div>
+                    <!-- <div class="form-group clearfix">
+                    </div> -->
                     <div class="form-group message-btn">
-                        <button type="button" id="signInBtn" class="theme-btn theme-btn-five">Sign In <i class="icon-4"></i></button>
+                        <button type="button" id="signInBtn" class="btn btn-primary">Sign In <i class="icon-4"></i></button>
                     </div>
                 </form>
             </div>
@@ -79,7 +80,7 @@
                         <input type="email" name="reset_email" id="reset_email" class="form-control form-control-solid rounded" placeholder="Enter your email" required>
                     </div>                  
 
-                    <button class="theme-btn theme-btn-five" id="passwordResetBtn" type="button">Reset Password</button>
+                    <button class="btn btn-primary" id="passwordResetBtn" type="button">Reset Password</button>
                 </form>
 
                 <form class="col-sm-12 col-md-10 col-lg-10 p-4 d-none flex-column" role="form" id="confirmResetForm">
@@ -103,29 +104,29 @@
     </main>
 
 
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/plugins.js"></script>
-    <script src="assets/js/owl.js"></script>
-    <script src="assets/js/wow.js"></script>
-    <script src="assets/js/validation.js"></script>
-    <script src="assets/js/jquery.fancybox.js"></script>
-    <script src="assets/js/appear.js"></script>
-    <script src="assets/js/scrollbar.js"></script>
-    <script src="assets/js/parallax.min.js"></script>
-    <script src="assets/js/circle-progress.js"></script>
-    <script src="assets/js/jquery.countTo.js"></script>
-    <script src="assets/js/nav-tool.js"></script>
-    <script src="assets/js/isotope.js"></script>
-    <script src="assets/js/jquery.nice-select.min.js"></script>
-    <script src="assets/js/jquery.paroller.min.js"></script>
-    <script src="assets/js/parallax-scroll.js"></script>
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <!-- <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/plugins.js"></script>
+    <script src="../assets/js/owl.js"></script>
+    <script src="../assets/js/wow.js"></script>
+    <script src="../assets/js/validation.js"></script>
+    <script src="../assets/js/jquery.fancybox.js"></script>
+    <script src="../assets/js/appear.js"></script>
+    <script src="../assets/js/scrollbar.js"></script>
+    <script src="../assets/js/parallax.min.js"></script>
+    <script src="../assets/js/circle-progress.js"></script>
+    <script src="../assets/js/jquery.countTo.js"></script>
+    <script src="../assets/js/nav-tool.js"></script>
+    <script src="../assets/js/isotope.js"></script>
+    <script src="../assets/js/jquery.nice-select.min.js"></script>
+    <script src="../assets/js/jquery.paroller.min.js"></script>
+    <script src="../assets/js/parallax-scroll.js"></script> -->
    
-    <script src="assets/js/script.js"></script>
-    <script src="assets/js/jquery_block_ui.js"></script>
-    <script src="assets/js/sweetalert2.min.js"></script>
-    <script src="assets/js/jquery.cookie.js"></script>
+    <!-- <script src="../assets/js/script.js"></script> -->
+    <script src="../assets/js/jquery_block_ui.js"></script>
+    <script src="../assets/js/sweetalert2.min.js"></script>
+    <script src="../assets/js/jquery.cookie.js"></script>
 
     <script>
         $.ajaxSetup({
@@ -173,7 +174,7 @@
             let formData = new FormData(signInForm);
             formData.append('action', 'sign_in_auth');        
             $.ajax({
-                url: "/backend/",
+                url: "https://pitchmaven.bootqlass.com/",
                 type: "POST",
                 headers: {
                     // "Content-type": "application/x-www-form-urlencoded; charset=UTF-8",
@@ -225,7 +226,7 @@
             let formData = new FormData(passwordResetForm);
             formData.append('action', 'reset_password_auth');        
             $.ajax({
-                url: "/backend/",
+                url: "https://pitchmaven.bootqlass.com/",
                 type: "POST",
                 headers: {
                     // "Content-type": "application/x-www-form-urlencoded; charset=UTF-8",
@@ -284,7 +285,7 @@
             let formData = new FormData(confirmResetForm);
             formData.append('action', 'confirm_otp_auth');        
             $.ajax({
-                url: "/backend/",
+                url: "https://pitchmaven.bootqlass.com/",
                 type: "POST",
                 data: formData,
                 contentType: false,

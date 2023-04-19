@@ -44,6 +44,10 @@
 
 /** banner-section **/
 
+* {
+  box-sizing: border-box;
+}
+
 .slider-one{
   position: relative;
   overflow: hidden;
@@ -17220,24 +17224,26 @@ body.out .mouse-pointer {
 
 .info-container {
   container-type: inline-size;
-  background:linear-gradient(to bottom left, rgba(97, 42, 222, 0.97), rgba(23, 10, 55, 0.9)), url('../images/background/chooseus-bg-4.jpg');
+  background:linear-gradient(to bottom left, rgba(97, 42, 222, 0.97), rgba(23, 10, 55, 0.9)), url('../../img/bg-001.jpg');
   background-size: cover;
+  background-repeat: no-repeat;
   object-fit: cover;
-  background-position: center;
   box-sizing: border-box;
   font-family: 'Poppins', 'Montserrate';
 }
 
 .auth-title {
     font-size: 50px;
-    font-weight: bolder;
-    color: #fff;
+    font-weight: 900;
+    color: rgba(97, 42, 222, 1);
+    text-transform: uppercase;
 }
 
 .form-container {
   container-type: inline-size;
   box-sizing: border-box;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding-top: 50px;
