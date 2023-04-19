@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from htmlstream.com/preview/Oscout-dashboard-v2.1.1/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 25 Nov 2022 14:05:08 GMT -->
-<head>
-  <!-- Required Meta Tags Always Come First -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+<head>
+  
   <!-- Title -->
-  <title>PitchMaven</title>
+  <title>PitchMaven - Strengthen the local leagues just fro the love of the game! | Dashboard</title>
 
   <!-- Favicon -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Required Meta Tags Always Come First -->
+  <meta charset="utf-8">
   <link rel="shortcut icon" href="/favicon.png">
 
   <!-- Font -->
@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="../assets/css/vendor.min.css">
 
   <!-- CSS Oscout Template -->
-  <link rel="stylesheet" href="../assets/css/theme.minc619.css?v=1.0">
+  <link rel="stylesheet" href="../assets/css/theme.minc619.css">
 
   <link rel="preload" href="../assets/css/theme.min.css" data-hs-appearance="default" as="style">
   <link rel="preload" href="../assets/css/theme-dark.min.css" data-hs-appearance="dark" as="style">
@@ -6055,8 +6055,8 @@
   <script src="../assets/vendor/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js"></script>
 
   <!-- JS Oscout -->
-  <script src="../../assets/js/theme.min.js"></script>
-  <script src="../../assets/js/hs.theme-appearance-charts.js"></script>
+  <script src="../assets/js/theme.min.js"></script>
+  <script src="../assets/js/hs.theme-appearance-charts.js"></script>
   <script src="../../assets/js/jQueryFiles.js"></script>
   <script src="../../assets/js/jquery_block_ui.js"></script>
    <script src="../../assets/js/jquery.cookie.js"></script>
@@ -6355,7 +6355,7 @@
         e.preventDefault();
         
         $.ajax({
-            url: '/backend/',
+            url: 'https://pitchmavenapi.bootqlass.com/',
             type: 'POST',
             dataType: 'JSON',
             data: {
@@ -6367,7 +6367,7 @@
             },
             success: function(json) {
                 if (json.statuscode == 0) {
-                    window.location.href = '../login.html';
+                    window.location.href = '/pages/signin.html';
                 } else {
                     Swal.fire({
                         title: "error",
@@ -6377,7 +6377,7 @@
                         confirmButtonText: "Ok"
                     }).then(function() {
                         CookieStorage.clear();
-                        window.location.href = '../../login.html';
+                        window.location.href = '/pages/signin.html';
                     });
                 }
             },
@@ -6391,7 +6391,7 @@
                     confirmButtonText: "Ok"
                 }).then(function() {
                         CookieStorage.clear();
-                        window.location.href = '../../login.html';
+                        window.location.href = '/pages/signin.html';
                     });
                 }
             });
@@ -6399,7 +6399,7 @@
         
     function getUserProfile() {
         $.ajax({
-            url: '/backend/',
+            url: 'https://pitchmavenapi.bootqlass.com/',
             type: 'POST',
             dataType: 'JSON',
             data: {
@@ -6429,11 +6429,11 @@
                     $(".profile_photo").attr("src", img.src);
                 } else {              
                     document.cookie = "_jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=";								
-                    // window.location.href = '../../login.html';
+                    window.location.href = '/pages/signin.html';
                 }
             },
             error: function(xhr, status, error) {			
-                // window.location.href = '../../login.html';
+                window.location.href = '/pages/signin.html';
                 console.log(xhr.responseText);
                 console.log($.cookie('_jwt'));
             }
