@@ -8,37 +8,68 @@
  * PHP Version: 8.1.3
  * 
  * @category Web_Application
- * @package  Gokolect_API_Service
+ * @package  PitchMaven_API_Service
  * @author   Tamunobarasinipiri Samuel Joseph <joseph.samuel@cinfores.com>
  * @license  MIT License
- * @link     https://gokolect.test
+ * @link     https://pitchmaven.bootqlass.com
  */
 
+error_reporting(E_ALL && E_NOTICE);
+ini_set('display_errors', 1);
 
-if (isset($_SERVER['HTTP_ORIGIN'])) {
-    header("Access-Control-Allow-Origin: *");
-    header("Content-Type: application/json; charset=UTF-8");
-    header('Access-Control-Allow-Credentials: true');
-    header("Access-Control-Allow-Methods: OPTIONS,GET,POST,PUT,DELETE");
-    header("Access-Control-Max-Age: 3600");
-    header("Access-Control-Allow-Headers:Origin, Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With, accept");
-}
+header('Access-Control-Allow-Origin: https://pitchmavenapi.bootqlass.com');
+header("Access-Control-Allow-Methods: HEAD, GET, POST, PUT, PATCH, DELETE, OPTIONS");
+header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method,Access-Control-Request-Headers, Authorization");
 
-$response = null;
+header('Content-Type: application/json');
 
-if (isset($_FILES) && isset($_POST['data']) && isset($_POST['action'])) {
-    
+// $method = $_SERVER['REQUEST_METHOD'];
+// if ($method == "OPTIONS") {
+// header('Access-Control-Allow-Origin: https://gokolectapp.bootqlass.com');
+// header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method,Access-Control-Request-Headers, Authorization");
+// header("HTTP/1.1 200 OK");
+// die();
+// }
+
+$response = $_POST;
+
+if (isset($_POST['file_name']) && isset($_FILES['file']['tmp_name']) && isset($_POST['action'])) {    
     if ($_POST['action'] === 'items') {
-        $response = uploadItems($_POST['data'], $_POST['imageFileType'], $_POST['dir']);
+        $response = uploadItems($_POST, $_FILES);
     } else if ($_POST['action'] === 'profile') {
-        $response = uploadProfile($_POST['data'], $_POST['imageFileType'], $_POST['dir']);
+        $response = uploadProfile($_POST, $_FILES);
+    } else if ($_POST['action'] === 'getfile') {
+        $response = getUploadedImages($_POST['dir'], $_POST['thefile']);
+    } else if ($_POST['action'] === 'deletefile') {
+        $response = deleteUploadedImages($_POST['dir'], $_POST['thefile']);
     } else {
         $response = ["statuscode" => -1, "status" => "No action specified ". $_POST['action']];
     }
-
 } else {
-    $response = ["statuscode" => -1, "status" =>"Error : File not uploaded to remote server."];
+    $response = ["statuscode" => -1, "status" =>"Error : File not uploaded to remote server.", "data" => $_POST, "file"=>$_FILES];
 }
+
+
+
+// save uploaded file
+    
+// $tempt_file = base64_decode($_POST['fileData']);
+// $file_dir = $uploadDir.$_POST['fileName'];
+// die(var_dump($tempt_file, $file_dir));
+// if (is_dir($uploadDir)) {
+//     if (move_uploaded_file($tempt_file, $file_dir)) {
+//         $response = ['statuscode' => 0, 'status' => " Uploaded! "];
+//     } else {
+//         $response = ["statuscode" => -1, "status" =>" Error : File not moved "];
+//     }
+    // file_put_contents(
+    //     $uploadDir. $_POST['fileName'],
+    //     base64_decode($_POST['fileData'])
+    // );
+// } else {
+//     $response = ["statuscode" => -1, "status" =>" Error : Directory not found "];
+// }
+
 
 /**
  * Upload team and palyer images
@@ -50,19 +81,18 @@ if (isset($_FILES) && isset($_POST['data']) && isset($_POST['action'])) {
  * 
  * @return mix
  */
-function uploadItems($data, $imageFileType, $dir)
-{    
-    $dt = strtotime(date('Ymd'));
-    $target_dirt = dirt($dir);
+function uploadItems($data, $file)
+{        
+    $target_dirt = dirt($data["dir"]);
     $target_dir = strtolower($target_dirt.DIRECTORY_SEPARATOR);
+
     $uploadOk = null;
-    
-    $filename = str_replace(' ', '', strtolower($dt."_".$data)).".".$imageFileType;
-    $target_file = $target_dir. str_replace(' ', '', strtolower($dt."_".$data)).".".$imageFileType;    
+   
+    $target_file = strtolower($target_dir . $data["file_name"]);    
     
     if (!is_dir($target_dir)) {
         mkdir($target_dir, 0777, true); 
-    } 
+    }     
     
     if (!file_exists($target_file)) {
         $uploadOk = 1;
@@ -71,10 +101,10 @@ function uploadItems($data, $imageFileType, $dir)
     if ($uploadOk != 1) {
         $response = ['status' => $uploadOk, 'statuscode' => $uploadOk];
     } else {
-        if (move_uploaded_file($_FILES['file']['tmp_name'], $target_file)) {    
-            $response = ['status' => "Uploaded", 'statuscode' => 200, 'filename' =>$filename, 'target_dir' => $target_dir];
+        if (move_uploaded_file($file['file']['tmp_name'], $target_file)) {                          
+            $response = ['status' => "Uploaded", 'statuscode' => 200, 'filename' =>$data["file_name"], 'target_dir' => $data["dir"]];
         } else {
-            $response = ['status' => "upload failed", 'statuscode' => -1];   
+            $response = ['status' => "Unable to upload the image...", 'statuscode' => -1, 'file' => $file, "data" => $data];   
         }
     }
     return $response;        
@@ -90,16 +120,12 @@ function uploadItems($data, $imageFileType, $dir)
  * 
  * @return mix
  */
-function uploadProfile($data, $imageFileType, $dir)
-{                       
-    $target_dirt = dirt($dir);
-    $dt = strtotime('now');
-    $target_dir = strtolower($target_dirt.DIRECTORY_SEPARATOR.strtolower(str_replace(' ', '', $dir)). DIRECTORY_SEPARATOR);
+function uploadProfile($data, $file)
+{         
+    $target_dirt = dirt($data["dir"]);
+    $target_dir = strtolower($target_dirt.DIRECTORY_SEPARATOR);
     $uploadOk = 1;
-    $name = "gkpf". $dt .$data;
-    $filename = str_replace(' ', '', strtolower($dt."_".$data)).".".$imageFileType;
-    $target_file = strtolower($target_dir . str_replace(' ', '', $name).".".$imageFileType);
-    
+    $target_file = strtolower($target_dir . $data["file_name"]);
     if (!is_dir($target_dir)) {
         mkdir($target_dir, 0777, true); 
     } 
@@ -110,11 +136,11 @@ function uploadProfile($data, $imageFileType, $dir)
 
     if ($uploadOk != 1) {
         $response = ['status' => true, 'statuscode' => $uploadOk];
-    } else {        
-        if (move_uploaded_file($_FILES['file']["tmp_name"], $target_file)) {                          
-            $response = ['status' => "Uploaded", 'statuscode' => 200, 'filename' =>$filename, 'target_dir' => $dir];
+    } else {
+        if (move_uploaded_file($file['file']['tmp_name'], $target_file)) {                        
+            $response = ['status' => "Uploaded", 'statuscode' => 200, 'filename' =>$data["file_name"], 'target_dir' => $data["dir"]];
         } else {
-            $response = ['status' => "Unable to upload the image...", 'statuscode' => -1];   
+            $response = ['status' => "Unable to upload the image...", 'statuscode' => -1, 'file' => $file, "data" => $data];   
         }
     }
     return $response;        
@@ -133,7 +159,7 @@ function dirt($dir)
     $applpicsdir = 'file_server/';
 
     if (!is_dir($applpicsdir)) {
-        $applpicsdir = "file_server/";
+        $applpicsdir = "file_server/".$dir;
     } else {
         $applpicsdir = (is_link($applpicsdir)?readlink($applpicsdir):$applpicsdir)."/{$new_dir}";
         // $applpicsdir = (is_link($applpicsdir)?readlink($applpicsdir):$applpicsdir)."/{$_SERVER['HTTP_HOST']}/{$new_dir}";
@@ -187,6 +213,75 @@ function getRelativePath($path)
         $root = str_repeat("../", $sub);
     }
     return $root . implode("/", array_slice($newDirs, 0, $offset));
+}
+
+/**
+ * Get uploaded images
+ * 
+ * @param string $dir     image directory
+ * @param string $thefile image
+ * 
+ * @return string
+ */
+function getUploadedImages($dir, $thefile) 
+{      
+    $applpicsdir = dirt($dir);
+    $dirt = $applpicsdir;
+    $retval = [];
+    if (substr($dirt, -1) != "/") {
+        $dirt .= "/";
+    } 
+
+    if (is_dir($dirt.=$dir)) {                            
+        if ($handle = opendir($dirt)) {
+            while (false !== ($file = readdir($handle))) {                
+                if ($file !== "." && $file !== "..") {
+                    $imgfile = file_get_contents($dirt."/".$thefile);
+                    $retval['photo'] = base64_encode($imgfile);         
+                } else {
+                    $retval['photo'] = null;
+                }
+            }            
+            closedir($handle);
+        } else {
+            $retval['photo'] = null;
+        }
+    } else {
+        $retval['photo'] = null;
+    }
+    return $retval;
+}
+
+/**
+ * Delete uploaded images
+ * 
+ * @param string $dir     image directory
+ * @param string $thefile image
+ * 
+ * @return string
+ */
+function deleteUploadedImages($dir, $thefile) 
+{      
+    $applpicsdir = dirt($dir);
+    $dirt = $applpicsdir;
+    $retval = "";
+    if (substr($dirt, -1) != "/") {
+        $dirt .= "/";
+    }
+    if (is_dir($dirt.=$dir) && $handle = opendir($dirt)) {
+        while (false !== ($file = readdir($handle))) {                
+            if ($file !== "." && $file !== "..") {
+                $imgfile = $dirt."/".$thefile;                    
+                if (file_exists($imgfile)) {
+                    $retval = unlink($imgfile);
+                } else {
+                    $retval = 10;
+                }       
+            }
+        }            
+        closedir($handle); 
+    }
+    return $retval;
 }
 
 echo json_encode($response);
