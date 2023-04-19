@@ -6329,7 +6329,7 @@
   <!-- End Style Switcher JS -->
 
   <script>
-        $(document).ajaxStart($.blockUI()).ajaxStop($.unblockUI());
+    $(document).ajaxStart($.blockUI()).ajaxStop($.unblockUI());
 
     $(document).ready(function() {
         $('#signOutLink').click(function(e) {
@@ -6429,11 +6429,11 @@
                     $(".profile_photo").attr("src", img.src);
                 } else {              
                     document.cookie = "_jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=";								
-                    window.location.href = '/pages/signin.html';
+                    // window.location.href = '/pages/signin.html';
                 }
             },
             error: function(xhr, status, error) {			
-                window.location.href = '/pages/signin.html';
+                // window.location.href = '/pages/signin.html';
                 console.log(xhr.responseText);
                 console.log($.cookie('_jwt'));
             }
