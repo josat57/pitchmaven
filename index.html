@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="pages/assets/css/style.css">
+    <link rel="stylesheet" href="pages/assets/css/costum-rules.css">
     <link rel="shortcut icon" href="pages/assets/media/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/util.css">
     <title>PitchMaven| For the love of the Game</title>
 </head>
 <body>
@@ -23,7 +26,57 @@
                     <li class="nav-item"><a href="#players" class="nav-link">Players</a></li>
                     <li class="nav-item"><a href="contactus" class="nav-link">Contact Us</a></li>
                 </ul>
+                <a href="#" class="signin-btn">Sign In</a>
             </nav>
+
+            <div class="header-content">
+                <h3 class="header-intro title-md text-white bg-secondary p-3 fw-black text-display-4">
+                    Welcome to PitchMaven
+                </h3>
+                <h1 class="header-title title-lg text-white fw-black text-display-7">
+                    <span>Improve the local League</span> 
+                    <span>Build big players</span>
+                </h1>
+                <h2 class="sub-title title-lg text-white fw-black text-display-6">
+                    For the Love of the Game!
+                </h2>
+                <div class="action-calls">
+                    <a href="#tournament" class="btn btn-lg rounded btn-outline action-btn">Start a Tournament</a>
+                    <a href="#scout" class="btn btn-lg btn-outline rounded action-btn ms-4">Scout Players</a>
+                </div>
+            </div>
+
+            <div class="row-container bg-success">
+                <div class="last-game-content my-card bg-dark col-7 col-md-7 col-sm-12 col-xl-6 rounded-square">
+                    <h1 class="text-light">Last Game</h1>
+                    <div class="last-game-details">
+                        <aside class="team-details">
+                            <img src="pages/assets/media/images/favicon.png" alt="Home Team Name" class="team-logo-md" id="home-team-logo">
+                            <h2 class="team-name text-white" id="home-team-name">OK-Bolt FC</h2>
+                        </aside>
+                        <h3 class="scores-board p-4 fw-bold text-display-4 text-white border-light-2">
+                            <span class="home-score me-2">2</span> - <span class="away-score ms-2">4</span>
+                        </h3>
+                        <aside class="team-details">
+                            <img src="pages/assets/media/images/favicon.png" alt="Away Team Name" class="team-logo-md" id="away-team-logo">
+                            <h2 class="team-name text-white" id="away-team-name">Seaside FC</h2>
+                        </aside>
+                    </div>
+                    <footer class="game-footer">
+                        <p class="date-venue text-white fw-bold text-display-2 mt-3">
+                            <span class="date-infor">
+                                <span class="day">Tue </span><span class="date">06 Feb 2023</span>
+                            </span>,
+                            <span class="game-location">
+                                Marakana Estadio
+                            </span>
+                        </p>
+                    </footer>
+                </div>
+                <div class="next-game-content my-card bg-danger col-7 col-md-7 col-sm-12 col-xl-6 rounded-square">
+                    <h1 class="text-light">Next Games</h1>
+                </div>
+            </div>
         </header>
         <section class="page-sections" id="fixtures"></section>
         <section class="page-sections" id="aboutus"></section>

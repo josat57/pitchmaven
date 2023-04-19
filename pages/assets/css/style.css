@@ -3,12 +3,20 @@
     Author: Joseph Samuel Tamunobarasinipiri
     Date: 2023
 */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@200;400;500;900&family=Montserrat:ital,wght@0,100;0,200;0,700;0,800;0,900;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,900&display=swap');
 
 :root {
     --primary: #D6044F;
     --secondary: #444444;
+    --warning: #ffc800;
+    --success: #099b61;
+    --info: #3980c6;
+    --dark: #000000;
+    --danger: #ff3300;
     --blue: #1e90ff;
     --white: #ffffff;
+    --light: #f0f0f0;
+    --bg-img: linear-gradient(to bottom left, rgba(214, 4, 79, 0.89), rgba(4, 125, 214, 0.45));    
 }
 
 * {
@@ -16,17 +24,34 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+html {
+    scroll-behavior: smooth;
+}
   
 body {
-    background: var(--blue); 
+    background: var(--white); 
     font-weight: 400;
     font-size: 14;
     line-height: 1.5;
     color: var(--secondary);
+    font-family: 'Poppins', 'Roboto', sans-serif;
 }
   
 h1,h2,h3,h4,h5,h6 {
     text-decoration: none;
+    font-family: 'Montserrat' 'Montserrat Alternates';
+}
+
+a {
+    text-decoration: none;
+}
+
+.title-lg {
+    font-family: 'Montserrat', 'Montserrat Alternates', 'Inter', sans-serif;
+    /* font-size: 4em; */
+    /* font-weight: 900; */
+    text-transform: capitalize;
 }
 
 .main-container {
@@ -46,7 +71,10 @@ h1,h2,h3,h4,h5,h6 {
 .main-header {
     display: flex;
     flex-direction: column;
-    background: var(--primary);
+    background: var(--bg-img), url('../media/images/mario-klassen-70YxSTWa2Zw-unsplash.jpg');
+    background-size: cover;
+    object-fit: cover;
+    /* filter: blur(36px); */
 }
 
 .main-nav {
@@ -55,11 +83,135 @@ h1,h2,h3,h4,h5,h6 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: var(--white);
+}
+
+.nav-bar {
+    list-style: none;
+    display: flex;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    color: var(--primary);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-link::after {
+    content: '';
+    width: calc(100% - 25px);
+    height: 4px;
+    position: absolute;
+    bottom: 0px;
+    left: 12.5px;
+    background: var(--blue);
+    transform: scaleX(0);
+    transition: all 0.5s ease-in-out;
+}
+
+.nav-link:hover::after, .nav-link:focus::after, .nav-link:active::after {
+    transform: scaleX(1);
 }
 
 .signin-btn {
     background-color: var(--white);
     color: var(--blue);
-    border: 1px solid var(--blue);
-    padding: 5px;
+    border: 2px solid var(--blue);
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.signin-btn:hover {
+    border: solid 2px var(--primary);
+    color: var(--primary);
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    padding-left:50px;
+}
+
+.header-title {
+    display: flex;
+    flex-direction: column;
+}
+
+.action-calls {
+    display: flex;
+    justify-content: space-between;
+}
+
+.row-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    outline: none;
+    border: none;
+    position: relative;
+    margin: 0 auto;
+    background: var(--danger);
+    /* border-radius: 8px 8px 0 0; */
+    /* overflow: hidden; */
+}
+
+.last-game-content {
+    width: 55%!important;
+    padding: 5rem!important;
+    z-index: 9999;
+    position: absolute!important;
+    top: 0rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.last-game-details {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.teams-details, .scores-board {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.team-logo-md {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    object-fit: cover;
+    border-radius: 360%;
+}
+
+.next-game-content {
+    width: 55%!important;
+    padding: 5rem!important;
+    position: absolute!important;
+    right: 0!important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }

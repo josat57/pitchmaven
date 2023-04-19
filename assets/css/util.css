@@ -1,0 +1,30 @@
+/*
+    Utility css
+*/
+
+.loader {
+    border: 0px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid rgba(27, 17, 95, 1);
+    border-right: 16px solid rgba(27, 17, 95, 1);
+    border-bottom: 16px solid rgba(27, 17, 95, 1);
+    border-left: 16px solid rgba(27, 17, 95, 1);
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    -webkit-animation: spin 300ms linear infinite;
+    animation: spin 1s linear infinite;
+}
+  
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
