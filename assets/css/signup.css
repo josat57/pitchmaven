@@ -1,14 +1,15 @@
 /* linear-gradient(to bottom, rgba(27, 17, 95, 0.7), rgba(27, 17, 95, 0.99)) */
 
 :root {
-    --primary: rgb(10, 209, 120);
-    --bg-dark: rgba(2, 65, 30, 0.995);
-    --bg-main: linear-gradient(to bottom left, rgba(2, 62, 29, 0.995), rgba(10, 209, 120, 0.7))
+    --primary: rgb(214, 4, 79);
+    --bg-dark: rgb(83, 3, 31);
+    --bg-main: linear-gradient(to bottom left, rgba(83, 3, 31, 0.995), rgba(214, 4, 79, 0.7))
 }
 
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -62,7 +63,7 @@ body {
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    background: var(--bg-main), url('../../img/bg-001.jpg') no-repeat center center fixed;
+    background: var(--bg-main), url('../../img/bg-001.jpg') no-repeat;
     background-size: cover;
     object-fit: cover;
 }
