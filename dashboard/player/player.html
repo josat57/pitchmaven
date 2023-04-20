@@ -6378,7 +6378,10 @@
             },
             success: function(json) {
                 if (json.statuscode == 0) {
-                    window.location.href = '/pages/signin.html';
+                  let page = window.location.href;
+                    console.log(page);
+                    // $.removeCookie('_jwtp', { path: page });
+                    // window.location.href = '/pages/signin.html';
                 } else {
                     Swal.fire({
                         title: "error",
@@ -6387,8 +6390,10 @@
                         icon: "error",
                         confirmButtonText: "Ok"
                     }).then(function() {
-                        CookieStorage.clear();
-                        window.location.href = '/pages/signin.html';
+                        let page = window.location.href;
+                        console.log(page);
+                        // $.removeCookie('_jwtp', { path: page });
+                        // window.location.href = '/pages/signin.html';
                     });
                 }
             },
@@ -6401,11 +6406,13 @@
                     icon: "error",
                     confirmButtonText: "Ok"
                 }).then(function() {
-                        CookieStorage.clear();
-                        window.location.href = '/pages/signin.html';
-                    });
-                }
-            });
+                    let page = window.location.href;
+                    console.log(page);
+                    $.removeCookie('_jwtp', { path: page });
+                    window.location.href = '/pages/signin.html';
+                });
+            }
+        });
     }
         
     function getUserProfile() {
