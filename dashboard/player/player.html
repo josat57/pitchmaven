@@ -6389,8 +6389,8 @@
                         icon: "error",
                         confirmButtonText: "Ok"
                     }).then(function() {
-                        let page = window.location.href;
-                        $.cookie('_jwt', '', {expires: -1, path: page});
+                        let page = window.location.href.toString();
+                        console.log($.cookie('_jwt', '', {expires: -1, path: page}), page);
                         // window.location.href = '/pages/signin.html';
                     });
                 }
