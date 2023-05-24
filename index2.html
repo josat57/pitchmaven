@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Website</title>
+    <!-- css link -->
+    <link rel="stylesheet" href="pages/assets/css/style1.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+    <!-- fontawesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div id="container1">
+
+        <!-- navbar -->
+        <div id="navbar">
+            <div id="logo"> 
+                <img src="img/pitchmaven_logo_web001.png" alt="" class="brand-logg">
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#fixtures">Fixtures</a></li>
+                <li><a href="#tournaments">Tournaments</a></li>
+                <li><a href="#taeams" >Teams</a></li>
+                <li><a href="#players">Players</a></li>
+                <!-- login Button -->
+                <li id="login"><a href="pages/signin.html">Login</a></li>
+            </ul>
+        </div>
+
+        <!-- image -->
+        <div id="image">
+            <img src="pages/assets/media/images/Football_Player.png" alt="football player png" width="100%">
+        </div>
+
+        <!-- content -->
+        <div id="content">
+            <h2>SPORTS</h2>
+            <h4>TRAINER</h4>
+        </div>
+
+        <!-- icons -->
+        <div id="icons">
+            <!-- visit => "fontawesome.com" for icons -->
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+
+        <!-- pagination -->
+        <div id="pagination">
+            <!-- left arrow -->
+            <a href="#"><i class="fas fa-angle-left"></i></a>
+            <!-- right arrow -->
+            <a href="#"><i class="fas fa-angle-right"></i></a>
+        </div>
+
+        <!-- lines -->
+        <div id="line1"></div>
+        <div id="line2"></div>
+
+    </div>
+  
+    <section>
+        <div class="swiper mySwiper Container">
+            <div class="swiper-wrapper content">
+
+                <div class="swiper-slide card">
+                    <div class="card-content">
+                        <div class="image">
+                            <img src="pages/assets/media/images/favicon.png" alt="">
+                        </div>
+                    </div>
+                    <div class="button">
+                        <button>Rent</button>
+                        <button>Buy</button>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <script src="pages/assets/js/slideindex.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="pages/assets/js/swiper.js"></script>
+</body>  
+</html>

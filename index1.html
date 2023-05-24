@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Strengthen the local leagues just for the love of the game.">
+    <meta name="author" content="Football Leagues, Tournament, Love Game Players, Managers Coaches Trophy Teams">
+    <meta name="generator" content="PitchMaven 0.111.3">
+    
+    <link rel="stylesheet" href="pages/assets/css/style.css">
+    <link rel="stylesheet" href="pages/assets/css/costum-rules.css">
+    <link rel="shortcut icon" href="pages/assets/media/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/util.css">
+    <title>PitchMaven| For the love of the Game</title>
+</head>
+<body>
+    <main class="main-container">
+        <header class="main-header">
+            <nav class="navbar navbar-expand-md bg-body-tertiary fixed-top bg-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/">
+                        <img src="img/pitchmaven_logo_web001.png" alt="" class="brand-logg">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+                        <ul class="navbar-nav">
+                            <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                            <li class="nav-item"><a href="#fixtures" class="nav-link">Fixtures</a></li>
+                            <li class="nav-item"><a href="#aboutus" class="nav-link">About Us</a></li>
+                            <li class="nav-item"><a href="#tournaments" class="nav-link">Tournaments</a></li>
+                            <li class="nav-item"><a href="#taeams" class="nav-link">Teams</a></li>
+                            <li class="nav-item"><a href="#players" class="nav-link">Players</a></li>
+                            <li class="nav-item"><a href="contactus" class="nav-link">Contact Us</a></li>
+                        </ul>
+                        <a href="pages/signin.html" class="btn rounded btn-outline-primary ms-4">Sign In</a>
+                        <a href="pages/signup.html" class="btn rounded btn-outline-danger ms-3">Sign Up</a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="header-content">
+                <h3 class="header-intro title-md text-white bg-secondary p-3 fw-black text-display-4">
+                    Welcome to PitchMaven
+                </h3>
+                <h1 class="header-title title-lg text-white fw-black text-display-7">
+                    <span>Improve the local League</span> 
+                    <span>Build big players</span>
+                </h1>
+                <h2 class="sub-title title-lg text-white fw-black text-display-6">
+                    For the Love of the Game!
+                </h2>
+                <div class="action-calls mt-4">
+                    <a href="#tournaments" class="btn btn-lg rounded btn-primary">Start a Tournament</a>
+                    <a href="#scout" class="btn btn-lg btn-primary rounded ms-4">Scout Players</a>
+                </div>
+            </div>
+
+            <div class="row-container bg-success">
+                <div class="last-game-content my-card bg-dark col-7 col-md-7 col-sm-12 col-xl-6 rounded-square">
+                    <h1 class="text-light">Last Game</h1>
+                    <div class="last-game-details">
+                        <aside class="team-details">
+                            <img src="pages/assets/media/images/favicon.png" alt="Home Team Name" class="team-logo-md" id="home-team-logo">
+                            <h2 class="team-name text-white" id="home-team-name">OK-Bolt FC</h2>
+                        </aside>
+                        <h3 class="scores-board p-4 fw-bold text-display-4 text-white border-light-2">
+                            <span class="home-score me-2">2</span> - <span class="away-score ms-2">4</span>
+                        </h3>
+                        <aside class="team-details">
+                            <img src="pages/assets/media/images/favicon.png" alt="Away Team Name" class="team-logo-md" id="away-team-logo">
+                            <h2 class="team-name text-white" id="away-team-name">Seaside FC</h2>
+                        </aside>
+                    </div>
+                    <footer class="game-footer">
+                        <p class="date-venue text-white fw-bold text-display-2 mt-3">
+                            <span class="date-infor">
+                                <span class="day">Tue </span><span class="date">06 Feb 2023</span>
+                            </span>,
+                            <span class="game-location">
+                                Marakana Estadio
+                            </span>
+                        </p>
+                    </footer>
+                </div>
+                <div class="next-game-content my-card bg-danger col-7 col-md-7 col-sm-12 col-xl-6 rounded-square">
+                    <h1 class="text-light">Next Games</h1>
+                </div>
+            </div>
+        </header>
+        <section class="page-sections" id="fixtures"></section>
+        <section class="page-sections" id="aboutus"></section>
+        <section class="page-sections" id="turnaments"></section>
+        <section class="page-sections" id="teams"></section>
+        <section class="page-sections" id="players"></section>
+        <section class="page-sections" id="contactus"></section>
+        <footer class="main-footer">
+            <p class="copyright">&copy;<span id="footerYear">2020</span></p>
+        </footer>
+    </main>
+    <script src="pages/assets/js/main.js"></script>
+
+    <script>
+        window.onload = () => {
+            const date = new Date();
+            const fullYear = date.getFullYear();
+            const footerYear = document.querySelector('#footerYear');
+            footerYear.textContent = fullYear;
+        }
+    </script>
+</body>
+</html>
