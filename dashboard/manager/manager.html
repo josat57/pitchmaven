@@ -1222,71 +1222,12 @@
               </div>
 
               <div class="nav-item">
-                <a class="nav-link " href="landing.html" data-placement="left">
+                <a class="nav-link " href=""#" data-placement="left" id="signOutMenu">
                   <i class="bi-box-seam nav-icon"></i>
-                  <span class="nav-link-title">Landing Page <span class="badge bg-info rounded-pill ms-1">New</span></span>
+                  <span class="nav-link-title">Sign Out</span>
                 </a>
               </div>
-            </div>
-            <!-- End Collapse -->
-
-            <span class="dropdown-header mt-4">Apps</span>
-            <small class="bi-three-dots nav-subtitle-replacer"></small>
-
-            <div class="nav-item">
-              <a class="nav-link " href="apps-kanban.html" data-placement="left">
-                <i class="bi-kanban nav-icon"></i>
-                <span class="nav-link-title">Kanban</span>
-              </a>
-            </div>
-
-            <div class="nav-item">
-              <a class="nav-link " href="apps-calendar.html" data-placement="left">
-                <i class="bi-calendar-week nav-icon"></i>
-                <span class="nav-link-title">Calendar</span>
-              </a>
-            </div>
-
-            <div class="nav-item">
-              <a class="nav-link " href="apps-invoice-generator.html" data-placement="left">
-                <i class="bi-receipt nav-icon"></i>
-                <span class="nav-link-title">Invoice Generator</span>
-              </a>
-            </div>
-
-            <div class="nav-item">
-              <a class="nav-link " href="apps-file-manager.html" data-placement="left">
-                <i class="bi-folder2-open nav-icon"></i>
-                <span class="nav-link-title">File Manager</span>
-              </a>
-            </div>
-
-            <span class="dropdown-header mt-4">Layouts</span>
-            <small class="bi-three-dots nav-subtitle-replacer"></small>
-
-            <div class="nav-item">
-              <a class="nav-link " href="layouts/index.html" data-placement="left">
-                <i class="bi-grid-1x2 nav-icon"></i>
-                <span class="nav-link-title">Layouts</span>
-              </a>
-            </div>
-
-            <span class="dropdown-header mt-4">Documentation</span>
-            <small class="bi-three-dots nav-subtitle-replacer"></small>
-
-            <div class="nav-item">
-              <a class="nav-link " href="documentation/index.html" data-placement="left">
-                <i class="bi-book nav-icon"></i>
-                <span class="nav-link-title">Documentation <span class="badge bg-primary rounded-pill ms-1">v2.1.1</span></span>
-              </a>
-            </div>
-
-            <div class="nav-item">
-              <a class="nav-link " href="documentation/typography.html" data-placement="left">
-                <i class="bi-layers nav-icon"></i>
-                <span class="nav-link-title">Components</span>
-              </a>
-            </div>
+            </div>            
           </div>
 
         </div>
@@ -6338,7 +6279,7 @@
             window.location.reload(true);
         });
 
-        $('#signoutBtn').click(function(e) {
+        $('#signOutMenu').click(function(e) {
             signOutUser(e);
         });
 
@@ -6350,6 +6291,108 @@
         
     });
 
+    function signOutUser(e) {
+        e.preventDefault();
+        
+        $.ajax({
+            url: 'https://pitchmavenapi.bootqlass.com/',
+            type: 'POST',
+            dataType: 'JSON',
+            data: {
+                'action': 'sign_out_auth',
+                'token': $.cookie('_jwt')
+            },
+            headers: {
+                Authorization: `Bearer ${$.cookie('_jwt')}`,
+            },
+            success: function(json) {
+                if (json.statuscode == 0) {
+                    $.removeCookie('_jwt', { path: '/dashboard/manager/manager.html' });
+                    window.location.href = '/pages/signin.html';
+                } else {
+                    Swal.fire({
+                        title: "error",
+                        html: json.status,
+                        type: "error",
+                        icon: "error",
+                        confirmButtonText: "Ok"
+                    }).then(function() {
+                      $.removeCookie('_jwt', { path: '/dashboard/manager/manager.html' });
+                      window.location.href = '/pages/signin.html';
+                    });
+                }
+            },
+            error: function(xhr, status, error) {
+                console.log(xhr.responseText);
+                Swal.fire({
+                    title: "error",
+                    html: xhr.responseText,
+                    type: "error",
+                    icon: "error",
+                    confirmButtonText: "Ok"
+                }).then(function() {
+                    $.removeCookie('_jwt', { path: '/dashboard/manager/manager.html' });
+                    window.location.href = '/pages/signin.html';
+                });
+            }
+        });
+    }
+        
+    function getUserProfile() {
+        $.ajax({
+            url: 'https://pitchmavenapi.bootqlass.com/',
+            type: 'POST',
+            dataType: 'JSON',
+            data: {
+                'action': 'get_current_users',
+                'token': $.cookie('_jwt')
+            },
+            headers: {
+                Authorization: `Bearer ${$.cookie('_jwt')}`,
+            },
+            success: function(json) {				
+                if (json.statuscode === 0) {
+                    console.log(json);
+                    const full_name = json.data.first_name + " " + json.data.last_name;
+                    window.localStorage.setItem('fullName', full_name);
+                    $(".user-name-text").text(json.data.first_name);
+                    $("#user_email").text(json.data.email);
+                    $("#header-title").text(full_name);
+                    $("#user_full_name").addClass("text-truncated");
+                    $("#user_full_name").attr("title", full_name);
+                    if (json.data.role == 'admin') {
+                        $("#user_role").text("Election Controller");
+                    } else {
+                        $("#user_role").text(json.data.role);
+                    }
+                    if ("N/A " === json.data.profile_photo) {
+                        let initials = json.data.first_name.charAt(0) + json.data.last_name.charAt(0);
+                        
+                        const bgColor = Math.floor(Math.random()*16777215).toString(16);
+                        const txColor = Math.floor(Math.random()*16777215).toString(16);
+                        // document.body.style.backgroundColor = "#" + randomColor;
+                        // color.innerHTML = "#" + randomColor;
+                        
+                        $(".alt-initials").css("color", "#" + txColor);
+                        $(".alt-initials").html(initials.toUpperCase());
+                        $(".alt-initials").css("background-color", "#" + bgColor);
+                    } else {
+                        const img = new Image();
+                        img.src = "data:image/jpg;base64," + json.data.profile_photo;
+                        $(".profile_photo").attr("src", img.src);
+                    }
+                } else {              
+                    $.removeCookie('_jwt', {path: '/dashboard/manager/manager.html'});								
+                    window.location.href = '/pages/signin.html';
+                }
+            },
+            error: function(xhr, status, error) {	
+              console.log(xhr, status, error);
+              $.removeCookie('_jwt', '', {path: '/dashboard/manager/manager.html'});
+              window.location.href = '/pages/signin.html';
+            }
+        });
+    }
 
     </script>
 </body>
