@@ -55,18 +55,27 @@
                             <label for="password">Password</label>
                             <input type="password" name="password" id="password" class="form-control rounded" placeholder="Enter your password" required>
                         </div>
+                        
                         <div class="form-group p4 mx-4 my-1">
                             <label for="confirm_password">Confirm Password</label>
                             <input type="password" name="confirm_password" id="confirm_password" class="form-control rounded" placeholder="Confirm your password" required>
                         </div>
-                        <div class="form-group mx-4 my-1 util-box">
-                            <div class="form-check text-muted">
-                                <input type="checkbox" class="form-check-input" name="accept_policy" id="accept_policy" title="By click on the sign up button, I accept that I have read and agreed to all Terms and User Policies." />
-                                <label for="accept_policy" class="form-check-label" title="By click on the sign up button, I accept that I have read and agreed to all Terms and User Policies.">Accept User 
-                                    <a href="#terms-policy" target="_blank" title="By click on the sign up button, I accept that I have read and agreed to all Terms and User Policies.">Terms and Policy</a>
-                                </label>
-                            </div>
-                        </div>  
+
+                        <div class="form-group p4 mx-4 my-1">
+                            <label for="confirm_password">Currency</label>
+                            <input type="text" name="currency" id="currency" class="form-control rounded" placeholder="Currency" value="NGN">
+                        </div>
+
+                        <div class="form-group p4 mx-4 my-1">
+                            <label for="confirm_password">Amount</label>
+                            <input type="text" name="amount" id="amount" class="form-control rounded" placeholder="Amount" value="1500">
+                        </div>
+
+                        <div class="form-group p4 mx-4 my-1">
+                            <label for="confirm_password">Country</label>
+                            <input type="text" name="country" id="country" class="form-control rounded" placeholder="Country" value="Nigeria">
+                        </div>
+                         
                         <div class="form-group mx-4 my-1">
                             <button class="btn btn-custom-primary rounded w-100" id="signup-btn" type="button">Sign Up</button>
                         </div>               
@@ -82,6 +91,7 @@
         <script src="../assets/js/bootstrap.min.js"></script>
         <script src="../assets/js/jquery_block_ui.js"></script>
         <script src="../assets/js/sweetalert2.min.js"></script>
+        <script src="../assets/js/jquery.cookie.js"></script>
 
         <script>
             $.ajaxSetup({
@@ -96,7 +106,12 @@
 
             $(document).ready(function(){
                 $('#signup-btn').click(function(e){
-                    signUp(e);
+                    const userType = window.localStorage.getItem('user_type');
+                    if (userType == "admin") {
+                        processPayment(e);
+                    } else {
+                        signUp(e);
+                    }
                 });
             }); 
 
@@ -145,7 +160,50 @@
                         });
                     }
                 });
-            }
+            }                                       
+
+            function processPayment(e) {
+                e.preventDefault();
+                let formData = new FormData(signupForm); 
+                formData.append('action', 'process_payment');  
+                formData.append("accept_policy", window.localStorage.getItem('accept_policy')); 
+                $.ajax({
+                    url: "https://pitchmavenapi.bootqlass.com/",
+                    type: "POST",
+                    data: formData,
+                    headers: {
+                        Authorization: `Bearer ${$.cookie('_jwtp')}`
+                    },
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    dataType: 'JSON',
+                    success: function(link){
+                        const url = new URL(link);
+                        console.log(url, link)
+                        window.location.href = url.href;
+                        // $.globalEval(html);                     
+                        // $(document).ready(function(){
+                        //     document.write(html);
+                        // });               
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.log(errorThrown);
+                        console.log(jqXHR);
+                        console.log(textStatus);
+                        // $(document).ready(function(){
+                        //     document.write(jqXHR.responseText);
+                        // });  
+                        // Swal.fire({
+                        //     title: "Error",
+                        //     html: jqXHR.responseText,
+                        //     icon: "error",
+                        //     confirmButtonText: "Ok"
+                        // });
+                    }
+                });
+            }    
+        
         </script>
 
     </body>

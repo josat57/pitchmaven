@@ -1,7 +1,7 @@
 /* linear-gradient(to bottom, rgba(27, 17, 95, 0.7), rgba(27, 17, 95, 0.99)) */
 
 :root {
-    --primary: rgb(214, 4, 79);
+    --primary: rgb(214, 4, 79)!important;
     --bg-dark: rgb(83, 3, 31);
     --bg-main: linear-gradient(to bottom left, rgba(83, 3, 31, 0.995), rgba(214, 4, 79, 0.7))
 }
@@ -95,7 +95,7 @@ body {
     font-weight: 900;
     color: var(--primary);
     text-align: center;
-    margin-bottom: 1rem;
+    margin: 0 1rem 2rem 2rem;
 }
 
 .form-subtitle {
@@ -120,8 +120,8 @@ body {
     color: #ffffff!important;
 }
 
-.text-primary {
-    color: rgba(68, 204, 68, 0.8)!important;
+.custom-text-primary {
+    color: var(--primary);
 }
 
 #image_preview {
