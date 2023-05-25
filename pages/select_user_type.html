@@ -102,6 +102,8 @@
             });
 
             $(document).ready(function(){
+                getApiToken();
+
                 $(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
  
                 $('#nextBtn').click(function(e){
@@ -138,7 +140,7 @@
 
             }); 
 
-            function getApiToken(storeJWT) {                                        
+            function getApiToken() {                                        
                 $.ajax({
                     url: 'https://pitchmavenapi.bootqlass.com/',
                     type: 'POST',
@@ -148,7 +150,6 @@
                     },
                     success: function(json) {	                		
                         if (json.statuscode === 0) {
-                            storeJWT.setJWT(json.data);
                             console.log(json.data);
                             $.cookie('_jwtP', json.data, { expires: 1});             
                         } else {
