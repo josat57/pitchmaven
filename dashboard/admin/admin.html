@@ -6292,12 +6292,12 @@
         $('#signOutMenue').click(function(e) {
             signOutUser(e);
         });
-
-        // $('#btn_create_platform').click(function(e) {
-            // createPlatform(e);
-        // });
         
-        getUserProfile();
+        if (typeof $.cookie('_jwt') === undefined) {
+            window.location.href = "/pages/signin.html";
+        } else {
+          getUserProfile();
+        }
     });
       
     function signOutUser(e) {
@@ -6316,8 +6316,6 @@
             },
             success: function(json) {
                 if (json.statuscode == 0) {
-                    let page = window.location.href;
-                    $.cookie('_jwt', '', {expires: -1, path: page});
                     $.removeCookie('_jwt', { path: '/dashboard/admin/admin.html' });
                     window.location.href = '/pages/signin.html';
                 } else {
@@ -6328,8 +6326,6 @@
                         icon: "error",
                         confirmButtonText: "Ok"
                     }).then(function() {
-                        let page = window.location.href.toString();
-                        console.log($.cookie('_jwt', '', {expires: -1, path: page}), page);
                         $.removeCookie('_jwt', { path: '/dashboard/admin/admin.html' });
                         window.location.href = '/pages/signin.html';
                     });
@@ -6344,8 +6340,6 @@
                     icon: "error",
                     confirmButtonText: "Ok"
                 }).then(function() {
-                    let page = window.location.href.toString();
-                    $.cookie('_jwt', '', {expires: -1, path: page});
                     $.removeCookie('_jwt', { path: '/dashboard/admin/admin.html' });
                     window.location.href = '/pages/signin.html';
                 });
@@ -6396,14 +6390,11 @@
                         $(".profile_photo").attr("src", img.src);
                     }
                 } else {              
-                    $.cookie('_jwt', '', {expires: -1, path: page});	
                     $.removeCookie('_jwt', { path: '/dashboard/admin/admin.html' });							
                     window.location.href = '/pages/signin.html';
                 }
             },
-            error: function(xhr, status, error) {	
-              console.log(xhr, status, error);
-              console.log($.cookie('_jwt', '', {expires: -1, path: page}));
+            error: function(xhr, status, error) {
               $.removeCookie('_jwt', { path: '/dashboard/admin/admin.html' });
               window.location.href = '/pages/signin.html';
             }

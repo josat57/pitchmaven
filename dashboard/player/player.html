@@ -5846,11 +5846,13 @@
             signOutUser(e);
         });
 
-        // $('#btn_create_platform').click(function(e) {
-            // createPlatform(e);
-        // });
+        if (typeof $.cookie('_jwt') === undefined) {
+            window.location.href = '/pages/singin.html';
+        } else {
+          getUserProfile();
+        }
+
         
-        getUserProfile();
     });
 
     function signOutUser(e) {
@@ -5870,7 +5872,7 @@
             success: function(json) {
                 if (json.statuscode == 0) {
                     let page = window.location.href;
-                    $.cookie('_jwt', '', {expires: -1, path: page});
+                    $.removeCookie('_jwt', { path: '/dashboard/player/player.html' });
                     window.location.href = '/pages/signin.html';
                 } else {
                     Swal.fire({
@@ -5880,9 +5882,8 @@
                         icon: "error",
                         confirmButtonText: "Ok"
                     }).then(function() {
-                        let page = window.location.href.toString();
-                        console.log($.cookie('_jwt', '', {expires: -1, path: page}), page);
-                        // window.location.href = '/pages/signin.html';
+                      $.removeCookie('_jwt', { path: '/dashboard/player/player.html' });
+                      window.location.href = '/pages/signin.html';
                     });
                 }
             },
@@ -5895,8 +5896,7 @@
                     icon: "error",
                     confirmButtonText: "Ok"
                 }).then(function() {
-                    let page = window.location.href;
-                    $.cookie('_jwt', '', {expires: -1, path: page});
+                    $.removeCookie('_jwt', { path: '/dashboard/player/player.html' });
                     window.location.href = '/pages/signin.html';
                 });
             }
