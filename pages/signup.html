@@ -179,8 +179,8 @@
                     processData: false,
                     dataType: 'JSON',
                     success: function(link){
+                        console.log(link)
                         const url = new URL(link);
-                        console.log(url, link)
                         window.location.href = url.href;
                         // $.globalEval(html);                     
                         // $(document).ready(function(){
