@@ -177,6 +177,7 @@
                 let formData = new FormData(signupForm); 
                 formData.append('action', 'process_payment');  
                 formData.append("accept_policy", window.localStorage.getItem('accept_policy')); 
+                formData.append("role", window.localStorage.getItem('user_type'));
                 $.ajax({
                     url: "https://pitchmavenapi.bootqlass.com/",
                     type: "POST",
