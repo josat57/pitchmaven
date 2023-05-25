@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from htmlstream.com/preview/Oscout-dashboard-v2.1.1/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 25 Nov 2022 14:05:08 GMT -->
 <head>
-  <!-- Required Meta Tags Always Come First -->
+  
   <meta charset="utf-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Title -->
-  <title>Oscout</title>
+  <title>PitchMaven | </title>
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="shortcut icon" href="../../favicon.png" type="image/png">
 
   <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet">
@@ -131,7 +131,7 @@
   }
   return (usePound ? "#" : "") + (g | (b << 8) | (r << 16)).toString(16)
 }
-            </script>
+  </script>
 </head>
 
 <body class="has-navbar-vertical-aside navbar-vertical-aside-show-xl   footer-offset">
@@ -947,7 +947,7 @@
       <div class="navbar-vertical-footer-offset">
         <!-- Logo -->
 
-        <a class="navbar-brand" href="index.html" aria-label="Oscout">
+        <a class="navbar-brand" href="index.html" aria-label="PitchMaven">
           <img class="navbar-brand-logo" src="../assets/svg/logos/logo.svg" alt="Logo" data-hs-theme-appearance="default">
           <img class="navbar-brand-logo" src="../assets/svg/logos-light/logo.svg" alt="Logo" data-hs-theme-appearance="dark">
           <img class="navbar-brand-logo-mini" src="../assets/svg/logos/logo-short.svg" alt="Logo" data-hs-theme-appearance="default">
@@ -1225,9 +1225,9 @@
               </div>
 
               <div class="nav-item">
-                <a class="nav-link " href="landing.html" data-placement="left">
+                <a class="nav-link " href="#" data-placement="left" id="signOutMenue">
                   <i class="bi-box-seam nav-icon"></i>
-                  <span class="nav-link-title">Sign Out <span class="badge bg-info rounded-pill ms-1">New</span></span>
+                  <span class="nav-link-title">Sign Out</span>
                 </a>
               </div>
             </div>
@@ -6289,18 +6289,22 @@
             signOutUser(e);
         });
 
+        $('#signOutMenue').click(function(e) {
+            signOutUser(e);
+        });
+
         // $('#btn_create_platform').click(function(e) {
             // createPlatform(e);
         // });
         
         getUserProfile();
     });
-
+      
     function signOutUser(e) {
         e.preventDefault();
         
         $.ajax({
-            url: '/backend/',
+            url: 'https://pitchmavenapi.bootqlass.com/',
             type: 'POST',
             dataType: 'JSON',
             data: {
@@ -6312,7 +6316,9 @@
             },
             success: function(json) {
                 if (json.statuscode == 0) {
-                    window.location.href = '../login.html';
+                    let page = window.location.href;
+                    $.cookie('_jwt', '', {expires: -1, path: page});
+                    window.location.href = '/pages/signin.html';
                 } else {
                     Swal.fire({
                         title: "error",
@@ -6321,8 +6327,9 @@
                         icon: "error",
                         confirmButtonText: "Ok"
                     }).then(function() {
-                        CookieStorage.clear();
-                        window.location.href = '../../login.html';
+                        let page = window.location.href.toString();
+                        console.log($.cookie('_jwt', '', {expires: -1, path: page}), page);
+                        window.location.href = '/pages/signin.html';
                     });
                 }
             },
@@ -6335,16 +6342,17 @@
                     icon: "error",
                     confirmButtonText: "Ok"
                 }).then(function() {
-                        CookieStorage.clear();
-                        window.location.href = '../../login.html';
-                    });
-                }
-            });
+                    let page = window.location.href.toString();
+                    $.cookie('_jwt', '', {expires: -1, path: page});
+                    window.location.href = '/pages/signin.html';
+                });
+            }
+        });
     }
         
     function getUserProfile() {
         $.ajax({
-            url: '/backend/',
+            url: 'https://pitchmavenapi.bootqlass.com/',
             type: 'POST',
             dataType: 'JSON',
             data: {
@@ -6355,8 +6363,7 @@
                 Authorization: `Bearer ${$.cookie('_jwt')}`,
             },
             success: function(json) {				
-                if (json.statuscode === 0) {
-                    console.log(json);
+                if (json.statuscode === 0) {                    
                     const full_name = json.data.first_name + " " + json.data.last_name;
                     window.localStorage.setItem('fullName', full_name);
                     $(".user-name-text").text(json.data.first_name);
@@ -6369,18 +6376,31 @@
                     } else {
                         $("#user_role").text(json.data.role);
                     }
-                    const img = new Image();
-                    img.src = "data:image/jpg;base64," + json.data.profile_photo;
-                    $(".profile_photo").attr("src", img.src);
+                    if ("N/A " === json.data.profile_photo) {
+                        let initials = json.data.first_name.charAt(0) + json.data.last_name.charAt(0);
+                        
+                        const bgColor = Math.floor(Math.random()*16777215).toString(16);
+                        const txColor = Math.floor(Math.random()*16777215).toString(16);
+                        // document.body.style.backgroundColor = "#" + randomColor;
+                        // color.innerHTML = "#" + randomColor;
+                        
+                        $(".alt-initials").css("color", "#" + txColor);
+                        $(".alt-initials").html(initials.toUpperCase());
+                        $(".alt-initials").css("background-color", "#" + bgColor);
+                    } else {
+                        const img = new Image();
+                        img.src = "data:image/jpg;base64," + json.data.profile_photo;
+                        $(".profile_photo").attr("src", img.src);
+                    }
                 } else {              
-                    document.cookie = "_jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=";								
-                    // window.location.href = '../../login.html';
+                    $.cookie('_jwt', '', {expires: -1, path: page});								
+                    window.location.href = '/pages/signin.html';
                 }
             },
-            error: function(xhr, status, error) {			
-                // window.location.href = '../../login.html';
-                console.log(xhr.responseText);
-                console.log($.cookie('_jwt'));
+            error: function(xhr, status, error) {	
+              console.log(xhr, status, error);
+              console.log($.cookie('_jwt', '', {expires: -1, path: page}));
+              window.location.href = '/pages/signin.html';
             }
         });
     }
