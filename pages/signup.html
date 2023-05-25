@@ -179,9 +179,19 @@
                     processData: false,
                     dataType: 'JSON',
                     success: function(link){
-                        console.log(link)
-                        const url = new URL(link);
-                        window.location.href = url.href;
+                        if (typeof link === "object") {
+                            Swal.fire({
+                                title: "Error",
+                                html: link.status,
+                                icon: "error",
+                                confirmButtonText: "Ok"
+                            });
+                        } else {
+                            console.log(link)
+                            const url = new URL(link);
+                            window.location.href = url.href;  
+                        }
+                        
                         // $.globalEval(html);                     
                         // $(document).ready(function(){
                         //     document.write(html);
