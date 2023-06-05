@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="shortcut icon" href="favicon.png" type="image/png">
   
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@200;400;500;900&family=Montserrat:ital,wght@0,100;0,200;0,700;0,800;0,900;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="pages/assets/fonts/icomoon/style.css">
 
-  <link rel="stylesheet" href="pages/assets/css/bootstrap/bootstrap.css">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/owl.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
   <link rel="stylesheet" href="pages/assets/css/jquery-ui.css">
   <link rel="stylesheet" href="pages/assets/css/owl.carousel.min.css">
   <link rel="stylesheet" href="pages/assets/css/owl.theme.default.min.css">
@@ -48,42 +50,40 @@
     <header class="site-navbar py-4" role="banner">
 
       <div class="container">
-        <div class="d-flex align-items-center">
-          <div class="site-logo">
-            <a href="index.html">
-              <img src="pages/assets/media/images/pitchmaven_logo_web001.png" alt="Logo">
-            </a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-5-strong">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglers" aria-controls="navbarTogglers" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse ms-4" id="navbarTogglers">
+            <div class="site-logo brand">
+              <a href="index.html" class="navbar-brand">
+                <img class="d-inline-block align-top" src="pages/assets/media/images/pitchmaven_logo_web001.png" alt="Logo">
+              </a>
+            </div>
+            <ul class="navbar-nav ms-auto mt-2 mt-lg-0 me-4">
+              <li class="nav-item"><a href="index.html" class="nav-link active text-white">Home</a></li>
+              <li class="nav-item"><a href="pages/matches.html" class="nav-link text-white">Matches</a></li>
+              <li class="nav-item"><a href="pages/players.html" class="nav-link text-white">Players</a></li>
+              <li class="nav-item"><a href="pages/blog.html" class="nav-link text-white">Blog</a></li>
+              <li class="nav-item"><a href="pages/contact.html" class="nav-link text-white">Contact</a></li>
+              <li class="nav-item"><a href="pages/signin.html" class="signinBtn btn btn-custom-dark py-2 px-4 rounded-pill text-white fw-light">SignIn</a></li>
+            </ul>
           </div>
-          <div class="ml-auto">
-            <nav class="site-navigation position-relative text-right" role="navigation">
-              <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                <li class="active"><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="pages/matches.html" class="nav-link">Matches</a></li>
-                <li><a href="pages/players.html" class="nav-link">Players</a></li>
-                <li><a href="pages/blog.html" class="nav-link">Blog</a></li>
-                <li><a href="pages/contact.html" class="nav-link">Contact</a></li>
-                <li><a href="pages/signin.html" class="nav-link" style="background:#000;border-radius:20px;">SignIn</a></li>
-              </ul>
-            </nav>
-
-            <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right text-white"><span
-                class="icon-menu h3 text-white"></span></a>
-          </div>
-        </div>
+        </nav>
       </div>
 
     </header>
 
     <div class="hero overlay" style="background-image: url('pages/assets/media/images/bg_3.jpg');">
       <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-5 ml-auto">
-            <h1 class="text-white">Welcome to PitchMaven</h1>
-            <p>Strengthen the local leagues just for the love of the game!</p>
+        <div class="row align-items-center d-flex justify-content-end">
+          <div class="col-lg-5 ml-auto" style="z-index:999;">
+            <h1 class="text-white">Welcome to <span class="fontFamily">PitchMaven</span></h1>
+            <p class="text-white">Strengthen the local leagues just for the love of the game!</p>
             <div id="date-countdown"></div>
             <p>
-              <a href="pages/select_user_type.html" class="btn btn-primary py-3 px-4 mr-3">Subscribe</a>
-              <a href="#learnmore" class="more light">Learn More</a>
+              <a href="pages/select_user_type.html" class="btn btn-lg btn-custom-dark text-white py-3 px-5 me-3 rounded-pill">Subscribe</a>
+              <a href="#learnmore" class="btn btn-lg btn-light py-3 px-5 ml-3 rounded-pill">Learn More</a>
             </p>  
           </div>
         </div>
@@ -556,6 +556,16 @@
 
 
   <script src="pages/assets/js/main.js"></script>
+
+  <script>
+    $(window).scroll(function(){
+      $('nav').toggleClass('scrolled', $(this).scrollTop() > 500);
+      $('.signinBtn').toggleClass('btn-custom-light', $(this).scrollTop() > 500);
+    });
+
+    $(document).ready(function() {
+    });
+  </script>
 
 </body>
 
